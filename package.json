@@ -1,21 +1,21 @@
 {
-  "name": "tech-doc-hugo",
-  "version": "0.0.1",
-  "description": "Hugo theme for technical documentation.",
+  "name": "butler-auth-docs",
+  "version": "1.0.0",
+  "description": "Butler Auth documentation.",
   "main": "none.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/google/docsy-example.git"
+    "url": "git+https://github.com/ptarmiganlabs/butler-auth-docs.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/google/docsy-example/issues"
+    "url": "https://github.com/ptarmiganlabs/butler-auth-docs/issues"
   },
-  "homepage": "https://github.com/google/docsy-example#readme",
+  "homepage": "https://github.com/ptarmiganlabs/butler-auth-docs#readme",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.8.6",
