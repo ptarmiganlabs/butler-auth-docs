@@ -1,81 +1,115 @@
 +++
-title = "Goldydocs"
-linkTitle = "Goldydocs"
+title = "Butler Auth"
+linkTitle = "Butler Auth"
 
 +++
 
-{{< blocks/cover title="Welcome to Goldydocs: A Docsy Example Project!" image_anchor="top" height="full" color="orange" >}}
+{{< blocks/cover title="Butler Auth: Strong, open source login security for Qlik Sense Enterprise." image_anchor="top" height="full" color="primary" >}}
 <div class="mx-auto">
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
 		Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/google/docsy-example">
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-auth">
 		Download <i class="fab fa-github ml-2 "></i>
 	</a>
-	<p class="lead mt-5">Porridge temperature assessment - in the cloud!</p>
-	{{< blocks/link-down color="info" >}}
+	<a class="btn btn-lg btn-success mr-3 mb-4" href="https://www.subscribepage.com/g3c1f1" target="_blank">
+		Newsletter <i class="fa fa-envelope ml-2 "></i>
+	</a>
+	<p class="lead mt-5">
+		Strong login seurity does not have to be difficult.<br><br>
+		Butler Auth greatly simplifies using authentication services such as <br>Microsoft, Google, Keycloak, Okta, Auth0, LDAP and others with Qlik Sense Enterprise on Windows.<br><br>
+		It does so by providing a uniform interface to commonly used Identiy Providers (IdP).<br>
+		Butler Auth redirects Qlik Sense login requests to the IdP of choice, <br>where the user is authenticated using the IdP's user directory.<br><br>
+		Features offered by the IdP (such as 2-factor authentication, hardware security keys etc)<br>are also available via Butler Auth.<br><br><br>
+		Click the arrow ⬇️ or scroll down to learn more.
+	</p>
+
+	<div class="mx-auto mt-5">
+		{{< blocks/link-down color="light" >}}
 </div>
 {{< /blocks/cover >}}
 
 
-{{% blocks/lead color="primary" %}}
-Goldydocs provides a single web UI providing visibility into porridge temperature, chair size, and bed softness metrics! You can even find out who's been eating **your** porridge.
 
-(Sadly, Goldydocs isn't a real project, but you can use this site as an example to create your own real websites with [Docsy](http://docsy.dev))
-{{% /blocks/lead %}}
+
+{{< blocks/section color="light">}}
+
+{{% blocks/feature icon="fa-star" title="Supports leading auth providers" %}}
+Google, Microsoft, Okta, Auth0, Keycloak, LDAP and others.
+
+[Full list of supported auth providers](/docs/providers/) 
+{{% /blocks/feature %}}
+
+
+
+{{% blocks/feature icon="fa-plus" title="Extensible"%}}
+Need to authenticate with some other identity provider?
+
+Not a problem. Buther Auth uses [Passport.js](http://www.passportjs.org/) strategies, of which there are 500+.
+
+[Read more...](/docs/developer/add-new-provider/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-address-book" title="LDAP support" %}}
+LDAP is useful as a user directory for Qlik Sense, but can also be used for authentication.
+
+[Read more...](/docs/providers/ldap/) 
+{{% /blocks/feature %}}
+
+
+
+{{% blocks/feature icon="fa-user" title="Single user or local file directories"%}}
+Sometimes you want all access to happen via a single account.
+
+Or use a local file with user names as directory.
+
+[Read more...](/docs/providers/single-user/) 
+{{% /blocks/feature %}}
+
+
+
+{{% blocks/feature icon="fa-chart-line" title="Observable" %}}
+Butler Auth can save data about its own memory usage for inclusion in operational monitoring tools.
+
+[Read more...](/docs/observable/influxdb-metrics/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-server" title="Runs anywhere" %}}
+Run Butler Auth on Windows server, Linux, Docker, Kubernetes or Mac OS.
+
+[Read more...](/docs/getting-started/) 
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}}
+
+
+
+
 
 {{< blocks/section color="dark" >}}
-{{% blocks/feature icon="fa-lightbulb" title="New chair metrics!" %}}
-The Goldydocs UI now shows chair size metrics by default.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 1.0" %}}
 
-Please follow this space for updates!
+Strong login strategies for Qlik Sense Enterprise.
+
+Available on [GitHub](https://github.com/ptarmiganlabs/butler-auth/releases).
+
+Star the GitHub repository to receive updates!
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/google/docsy-example" %}}
-We do a [Pull Request](https://github.com/google/docsy-example/pulls) contributions workflow on **GitHub**. New users are always welcome!
+{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/ptarmiganlabs/butler-auth" %}}
+We do a [Pull Request](https://github.com/ptarmiganlabs/butler-auth/pulls) contributions workflow on **GitHub**
+
+Have you added support for a new auth provider? Send us a pull request!
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/docsydocs" %}}
-For announcement of latest features etc.
-{{% /blocks/feature %}}
-
-
-{{< /blocks/section >}}
-
-
-{{< blocks/section >}}
-<div class="col">
-<h1 class="text-center">This is the second Section</h1>
-</div>
-
-{{< /blocks/section >}}
-
-
-
-{{< blocks/section >}}
-{{% blocks/feature icon="fab fa-app-store-ios" title="Download **from AppStore**" %}}
-Get the Goldydocs app!
-{{% /blocks/feature %}}
-
-
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/google/docsy-example" %}}
-We do a [Pull Request](https://github.com/google/docsy-example/pulls) contributions workflow on **GitHub**. New users are always welcome!
-{{% /blocks/feature %}}
-
-
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/GoHugoIO" %}}
-For announcement of latest features etc.
+{{% blocks/feature icon="fa fa-envelope" title="Sign up to our newsletter!" url="https://www.subscribepage.com/g3c1f1" %}}
+Announcements of new versions of all Butler tools as well as general SenseOps articles.
 {{% /blocks/feature %}}
 
 
 {{< /blocks/section >}}
 
-{{< blocks/section >}}
-
-<div class="col-12">
-<h1 class="text-center">This is another Section</h1>
-</div>
-
-{{< /blocks/section >}}
