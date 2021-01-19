@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/auth0/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/butler/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/choosing-auth-solution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/reference/config-file/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/10-logging/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/which-config-file/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/custom-demo-site/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/facebook/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/google/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/20-heartbeat/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/keycloak/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/ldap/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/local-file/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/microsoft/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/okta/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/reference/-passport.js/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/single-users/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/butler-family/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/30-docker-healtcheck/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/obeservable/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/use-cases/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/operations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/examples/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/nodejs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/40-uptime-monitor/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/50-rest-web-server/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/versioning/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/60-auth-providers/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/contributing/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/70-qlik-sense/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/reference/</loc>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/security/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/legal-stuff/</loc>
+    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/</loc>
+    <lastmod>2021-01-19T23:29:24+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/community/</loc>
+    <lastmod>2018-10-05T14:41:45+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/search/</loc>
+    <lastmod>2018-09-04T11:36:40+02:00</lastmod>
+  </url>
+  
+</urlset>
