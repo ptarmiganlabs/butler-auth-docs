@@ -40,7 +40,7 @@ Butler:
   # Uptime monitor
   uptimeMonitor:
     enable: false                    # Should uptime messages be written to the console and log files?
-    frequency: every 15 minutes      # https://bunkat.github.io/later/parsers.html
+    frequency: 300000                # Milliseconds
     logLevel: info                   # Starting at what log level should uptime messages be shown?
     storeInInfluxdb: 
       enable: false
@@ -51,8 +51,8 @@ Butler:
         username: user_joe
         password: joesecret
       dbName: butlerauth
-      instanceTag: DEV              # Tag that can be used to differentiate data from multiple Butler instances
-      # Default retention policy that should be created in InfluxDB when Butler creates a new database there. 
+      instanceTag: DEV              # Tag that can be used to differentiate data from multiple Butler Auth instances
+      # Default retention policy that should be created in InfluxDB when Butler Auth creates a new database there. 
       # Any data older than retention policy threshold will be purged from InfluxDB.
       retentionPolicy:
         name: 10d

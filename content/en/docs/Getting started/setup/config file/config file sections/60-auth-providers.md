@@ -38,17 +38,19 @@ ButlerAuth:
   authProvider:       
     localFile:                          # "Local file" provider reads user data from a file on disk
       enable: false                    
-      userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
-      userFile: ./config/users.yaml   # YAML file containing usernames and passwords
+      url: https://<FQDN>:8081          # URL where login UI for this provider is available
+      userDirectory: lab                # Qlik Sense user directory that will be used for the authenticated user
+      userFile: ./config/users.yaml     # YAML file containing usernames and passwords
 
     ldap:                               # "LDAP" provider
       enable: false
-      userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
-      ldapServer:                     # Information about the LDAP server to authenticate against
+      url: https://<FQDN>:8081          # URL where login UI for this provider is available
+      userDirectory: lab                # Qlik Sense user directory that will be used for the authenticated user
+      ldapServer:                       # Information about the LDAP server to authenticate against
         host: <ldap(s)://ldap.mydomain.com>    # Both normal (ldap://) and secure (ldaps://) LDAP is supported
-        port: 636                   # Usually 389 for LDAP and 636 for LDAPS
-        bindUser: '<domain\username>'       # Service account used to log into the LDAP server
-        bindPwd: <password>         # Password of service account
+        port: 636                       # Usually 389 for LDAP and 636 for LDAPS
+        bindUser: '<domain\username>'   # Service account used to log into the LDAP server
+        bindPwd: <password>             # Password of service account
         searchBase: '<dc=...,dc=...,dc=...>'    # Base path from which authentication attempts will start
         searchFilter: '(&(objectcategory=person)(objectclass=user)(|(samaccountname={{username}})(mail={{username}})))' # Filter used to get info about users in LDAP server
         tls: 
@@ -59,33 +61,33 @@ ButlerAuth:
           # Should point to a PEM coded CA certificate file.
           ca: 
 
-    singleUser:                         # "Single user" provider
+    singleUser:                       # "Single user" provider
       enable: false
       userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
       userId: goran                   # A user that already exists in QLik Sense. All access to Sense will be done using this user.
 
-    google:                             # "Google" OAuth2 provider
+    google:                           # "Google" OAuth2 provider
       enable: false
       userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
       userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
       clientId: <Client ID>
       clientSecret: <Client secret>
 
-    facebook:                           # "Facebook" OAuth2 provider
+    facebook:                         # "Facebook" OAuth2 provider
       enable: false
       userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
       userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
       clientId: <Client ID>
       clientSecret: <Client secret>
 
-    microsoft:                          # "Microsoft" OAuth2 provider
+    microsoft:                        # "Microsoft" OAuth2 provider
       enable: false
       userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
       userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
       clientId: <client ID>
       clientSecret: <Client>
 
-    okta:                               # "Facebook" provider
+    okta:                             # "Okta" provider
       enable: false
       userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
       userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
@@ -94,7 +96,7 @@ ButlerAuth:
       oktaDomain: <Okta domain from Google admin console>  # E.q. https://myid-123456.okta.com'
       idp: 
 
-    keycloak:                           # "Keycloak" provider
+    keycloak:                         # "Keycloak" provider
       enable: true
       userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
       userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
@@ -106,7 +108,7 @@ ButlerAuth:
       tokenURL: <URL>                 # E.g. https://keycloak.mydomain.com/auth/realms/<myrealm>/protocol/openid-connect/token
       userInfoURL: <URL>              # E.g. https://keycloak.mydomain.com/auth/realms/<myrealm>/protocol/openid-connect/userinfo
 
-    auth0:                              # "Auth0" provider
+    auth0:                            # "Auth0" provider
       enable: true
       userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
       userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".

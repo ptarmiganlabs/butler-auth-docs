@@ -12,7 +12,7 @@ These settings are mandatory.
 
 ## What's this?
 
-
+These settings tell Butler Auth where to find the certificates it needs to communicate with Qlik Sense Enterprise.
 
 ## Settings in main config file
 

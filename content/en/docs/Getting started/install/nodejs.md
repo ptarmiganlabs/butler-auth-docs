@@ -35,11 +35,14 @@ Prerequisites:
     Download the repository zip from the [releases page](https://github.com/ptarmiganlabs/butler-auth/releases) file or clone the Butler Auth repository using your git tool of choice. Both options achieve the same thing, i.e. a directory such as d:\node\butler-auth, which is then Butler Auth's root directory.
 
 - **Install node dependencies**  
-    From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\\node\\butler-auth):
+    From a Windows command prompt (assuming the Butler ZIP file/repository was extracted to d:\\node\\butler-auth):
 
       d:
       cd \node\butler-auth\src
       npm install
 
-    This will download and install all Node.js modules used by Butler Auth.
+    This will download and install the Node.js modules used by Butler Auth.
 
+- **Configuration**  
+    Configuration of Butler Auth is done more or less the same way as [configuring for Docker](/docs/getting-started/install/docker/#installation-steps), i.e. get certificates from Qlik Sense Enterprise on Windows > store them in suitable location > refer to those cert files from `production.yaml` file etc.  
+    More details are then available in the on the [Configuration pages](/docs/getting-started/setup/config-file).

@@ -12,6 +12,9 @@ linkTitle = "Butler Auth"
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-auth">
 		Download <i class="fab fa-github ml-2 "></i>
 	</a>
+	<a class="btn btn-lg btn-dark mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler-auth/discussions" target="_blank">
+		Discussion forum<i class="fa fa-comments ml-2 "></i>
+	</a>
 	<a class="btn btn-lg btn-success mr-3 mb-4" href="https://www.subscribepage.com/g3c1f1" target="_blank">
 		Newsletter <i class="fa fa-envelope ml-2 "></i>
 	</a>
@@ -37,7 +40,7 @@ linkTitle = "Butler Auth"
 {{% blocks/feature icon="fa-star" title="Supports leading auth providers" %}}
 Google, Microsoft, Okta, Auth0, Keycloak, LDAP and others.
 
-[Full list of supported auth providers](/docs/providers/) 
+[Full list of supported auth providers](/docs/examples/auth-providers/) 
 {{% /blocks/feature %}}
 
 
@@ -47,14 +50,14 @@ Need to authenticate with some other identity provider?
 
 Not a problem. Buther Auth uses [Passport.js](http://www.passportjs.org/) strategies, of which there are 500+.
 
-[Read more...](/docs/developer/add-new-provider/) 
+[Read more...](docs/reference/-passport.js/) 
 {{% /blocks/feature %}}
 
 
 {{% blocks/feature icon="fa-address-book" title="LDAP support" %}}
 LDAP is useful as a user directory for Qlik Sense, but can also be used for authentication.
 
-[Read more...](/docs/providers/ldap/) 
+[Read more...](docs/examples/auth-providers/ldap) 
 {{% /blocks/feature %}}
 
 
@@ -64,7 +67,7 @@ Sometimes you want all access to happen via a single account.
 
 Or use a local file with user names as directory.
 
-[Read more...](/docs/providers/single-user/) 
+[Read more...](docs/examples/auth-providers/local-file/) 
 {{% /blocks/feature %}}
 
 
@@ -72,7 +75,7 @@ Or use a local file with user names as directory.
 {{% blocks/feature icon="fa-chart-line" title="Observable" %}}
 Butler Auth can save data about its own memory usage for inclusion in operational monitoring tools.
 
-[Read more...](/docs/observable/influxdb-metrics/) 
+[Read more...](/docs/examples/obeservable/) 
 {{% /blocks/feature %}}
 
 

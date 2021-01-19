@@ -41,9 +41,9 @@ Butler:
   # The concept is simple: The remoteURL will be called at the specified frequency. The receiving tool will then know 
   # that Butler Auth is alive.
   heartbeat:
-    enable: false
+    enable: false                     # Enable/disable healthcheck pings
     remoteURL: http://my.monitoring.server/some/path/
-    frequency: every 1 minute         # https://bunkat.github.io/later/parsers.html
+    frequency: frequency: 60000       # Milliseconds
   ...
   ...
 ```

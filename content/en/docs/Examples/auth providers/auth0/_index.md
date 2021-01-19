@@ -15,13 +15,14 @@ It's thus possible to set up Butler Auth to work with Auth0, and then via Auth0 
 The settings in the config file are:
 
 ```yaml
-  enable: true
-  userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
-  userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
-  issuerBaseURL: <FQDN>           # E.g. mycompany.eu.auth0.com
-  baseURL: <URL>                  # FQDN of Butler Auth, e.g. https://qliksenseauth.mycompany.com:8761'
-  clientId: <Client ID>
-  clientSecret: <Client secret>
+auth0:                              # "Auth0" provider
+    enable: true
+    userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
+    userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
+    issuerBaseURL: <FQDN>           # E.g. mycompany.eu.auth0.com
+    baseURL: <URL>                  # FQDN of Butler Auth, e.g. https://qliksenseauth.mycompany.com:8761'
+    clientId: <Client ID>
+    clientSecret: <Client secret>
 ```
 
 | Field | Description |

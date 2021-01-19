@@ -1,6 +1,6 @@
 ---
-title: "Config file syntax"
-linkTitle: "Config file syntax"
+title: "Config file"
+linkTitle: "Config file"
 weight: 10
 description: >
   Description of Butler Auth's config file.
@@ -23,7 +23,7 @@ ButlerAuth:
     heartbeat:
         enable: false
         remoteURL: http://my.monitoring.server/some/path/
-        frequency: every 1 minute         # https://bunkat.github.io/later/parsers.html
+        frequency: 60000                # Milliseconds
 
     # Docker health checks are used when running Butler Auth as a Docker container. 
     # The Docker engine will call the container's health check REST endpoint with a set interval to determine
@@ -36,7 +36,7 @@ ButlerAuth:
     # Uptime monitor
     uptimeMonitor:
         enable: false                    # Should uptime messages be written to the console and log files?
-        frequency: every 15 minutes      # https://bunkat.github.io/later/parsers.html
+        frequency: 300000                # Milliseconds
         logLevel: info                   # Starting at what log level should uptime messages be shown?
         storeInInfluxdb: 
             enable: false
@@ -57,9 +57,10 @@ ButlerAuth:
     # Server and https settings
     server:
         rest:                       # The REST server is the authentication server called by Qlik Sense.
-            host: <FQDN>            # FQDN of the REST server. E.g. qliksenseauth.mydomain.com. Most 3rd party auth providers demand a proper FQDN here, rather than just an IP. 
+            host: <FQDN>            # Hostname of the REST server. Would be container name when running under Docker, otherwise something like qliksenseauth.mydomain.com.
             port: 8761              # Port where the REST server will listen
             rateLimit:              # Used to limit number of authentication requests during a given time window. Used to prevent brute forcing attacks.
+                enable: false       # Enable/disable rate limiting for this REST API. true/false.
                 windowSize: 60000   # How long (milliseconds) is the time window we're capping # of logins for? Default 5 min if not specified.
                 maxCalls: 100       # Max # of logins from Qlik Sense during time window above. Default 100 if not specified.
             tls:                    # Many 3rd party auth providers require the OAuth 2 server to use https. 
@@ -77,14 +78,16 @@ ButlerAuth:
                 password: 
 
     # Auth providers are responsible for authenticating users before they are forwarded to Qlik Sense Enterprise.
-    authProvider:       
+    authProvider:
         localFile:                          # "Local file" provider reads user data from a file on disk
             enable: false                    
+            url: https://<FQDN>:8081        # URL where login UI for this provider is available
             userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
             userFile: ./config/users.yaml   # YAML file containing usernames and passwords
 
         ldap:                               # "LDAP" provider
             enable: false
+            url: https://<FQDN>:8081        # URL where login UI for this provider is available
             userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
             ldapServer:                     # Information about the LDAP server to authenticate against
                 host: <ldap(s)://ldap.mydomain.com>    # Both normal (ldap://) and secure (ldaps://) LDAP is supported
@@ -105,7 +108,7 @@ ButlerAuth:
         singleUser:                         # "Single user" provider
             enable: false
             userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
-            userId: goran                   # A user that already exists in QLik Sense. All access to Sense will be done using this user.
+            userId: goran                   # A user that already exists in Qlik Sense. All access to Sense will be done using this user.
 
         google:                             # "Google" OAuth2 provider
             enable: false
@@ -128,7 +131,7 @@ ButlerAuth:
             clientId: <client ID>
             clientSecret: <Client>
 
-        okta:                               # "Facebook" provider
+        okta:                               # "Okta" provider
             enable: false
             userDirectory: lab              # Qlik Sense user directory that will be used for the authenticated user
             userIdShort: true               # If true, the email domain will be removed. I.e. "joe.smith@domain.com" will be changed to "joe.smith".
