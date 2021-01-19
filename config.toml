@@ -9,6 +9,9 @@ theme = ["docsy"]
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
+# Added to support publishing to GitHub Pages, as per https://gohugo.io/hosting-and-deployment/hosting-on-github/
+publishDir = "docs"
+
 # Language settings
 contentDir = "content/en"
 defaultContentLanguage = "en"
@@ -188,3 +191,4 @@ enable = false
 	url = "https://github.com/ptarmiganlabs/butler-auth/issues/new/choose"
 	icon = "fab fa-github"
         desc = "Let us know what's working, what's not and what's missing."
+
