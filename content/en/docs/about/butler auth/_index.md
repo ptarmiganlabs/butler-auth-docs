@@ -27,4 +27,4 @@ Butler Auth is a member of a group of tools collectively referred to as the "But
 
 This picture might be useful to understand what Butle Auth does and how it fits into the larger system map around Qlik Sense:
 
-![alt text](butler-auth-system-overview-1.png "Butler Auth high level system overview")  
+![Butler Auth system overview](butlerauth-overview-1.png "Butler Auth system overview")  
