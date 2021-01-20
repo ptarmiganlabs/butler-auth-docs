@@ -1,0 +1,120 @@
+baseURL: 'https://butler-auth.ptarmiganlabs.com/'
+title: Butler Auth
+enableRobotsTXT: true
+theme:
+  - docsy
+enableGitInfo: true
+publishDir: docs
+contentDir: content/en
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+enableMissingTranslationPlaceholders: true
+disableKinds:
+  - taxonomy
+  - taxonomyTerm
+pygmentsCodeFences: true
+pygmentsUseClasses: false
+pygmentsUseClassic: false
+pygmentsStyle: tango
+permalinks:
+  blog: '/:section/:year/:month/:day/:slug/'
+blackfriday:
+  plainIDAnchors: true
+  hrefTargetBlank: true
+  angledQuotes: false
+  latexDashes: true
+imaging:
+  resampleFilter: CatmullRom
+  quality: 75
+  anchor: smart
+services:
+  googleAnalytics:
+    id: G-HE2K4LX1QL
+languages:
+  en:
+    title: Butler Auth
+    description: Butler Auth documentation
+    languageName: English
+    weight: 1
+    time_format_default: 2006.01.02
+    time_format_blog: 2006.01.02
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: tango
+menu:
+  main:
+    - name: What is Butler Auth?
+      weight: -103
+      url: /docs/about/butler-auth/
+    - name: The Butler family
+      weight: -98
+      url: /docs/about/butler-family
+outputs:
+  section:
+    - HTML
+    - RSS
+    - print
+params:
+  copyright: Ptarmigan Labs AB
+  version_menu: Releases
+  archived_version: false
+  version: '0.0'
+  url_latest_version: 'https://butler-auth.ptarmiganlabs.com'
+  github_repo: 'https://github.com/ptarmiganlabs/butler-auth-docs'
+  github_project_repo: 'https://github.com/ptarmiganlabs/butler-auth'
+  gcs_engine_id: '011737558837375720776:fsdu1nryfng'
+  algolia_docsearch: false
+  offlineSearch: false
+  prism_syntax_highlighting: false
+  ui:
+    sidebar_menu_compact: true
+    breadcrumb_disable: false
+    sidebar_search_disable: true
+    navbar_logo: true
+    footer_about_disable: false
+    feedback:
+      enable: true
+      'yes': >-
+        Glad to hear it! Please <a
+        href="https://github.com/ptarmiganlabs/butler-auth/issues/new">tell us
+        how we can improve</a>.
+      'no': >-
+        Sorry to hear that. Please <a
+        href="https://github.com/ptarmiganlabs/butler-auth/issues/new">tell us
+        how we can improve</a>.
+    readingtime:
+      enable: false
+  links:
+    user:
+      - name: SenseOps mailing list
+        url: 'https://www.subscribepage.com/g3c1f1'
+        icon: fa fa-envelope
+        desc: SenseOps newsletter from Ptarmigan Labs
+      - name: Discussion forums on GitHub
+        url: 'https://github.com/ptarmiganlabs/butler-auth/discussions'
+        icon: fa fa-comments
+        desc: Talk about both developing and using Butler Auth.
+      - name: Ptarmigan Labs on Twitter
+        url: 'https://twitter.com/ptarmiganlabs'
+        icon: fab fa-twitter
+        desc: Follow us here for latest news
+      - name: LinkedIn
+        url: 'https://www.linkedin.com/in/gorsan/'
+        icon: fab fa-linkedin
+        desc: Reach out to Ptarmigan Labs via LinkedIn
+    developer:
+      - name: GitHub
+        url: 'https://github.com/ptarmiganlabs/butler-auth'
+        icon: fab fa-github
+        desc: Development takes place here!
+      - name: Bug reports & Feature requests
+        url: 'https://github.com/ptarmiganlabs/butler-auth/issues/new/choose'
+        icon: fa fa-bug
+        desc: 'Let us know what''s working, what''s not and what''s missing.'
+      - name: Get in touch with Ptarmigan Labs
+        url: 'mailto://info@ptarmiganlabs.com'
+        icon: fa fa-envelope
+        desc: Get in touch with Ptarmigan Labs around Butler Auth
