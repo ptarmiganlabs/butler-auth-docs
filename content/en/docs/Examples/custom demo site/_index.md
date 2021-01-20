@@ -17,13 +17,14 @@ A single web page provides an easy way to try out the different auth providers:
 Each auth provider included on the demo site has a link that takes the user to Qlik Sense.
 For example, clicking the Google icon the user will be sent to `https://senseprod.ptarmiganlabs.net/ba-google`.  
 
-senseprod.ptarmiganlabs.net is a Qlik Sense Enterprise on Windows server, with a virtual proxy called `ba-google` (hint: ba=butlerauth).
+`senseprod.ptarmiganlabs.net` is a Qlik Sense Enterprise on Windows server, with a virtual proxy called `ba-google` (hint: ba=butlerauth).
 
 That virtual proxy has the usual settings plus a link to a "authentication module" that should be used.
 
 ![Virtual proxy using Butler Auth for Google authentication](butlerauth-virtualproxy-google.png "Virtual proxy using Butler Auth for Google authentication")
 
-The authentication module is - surprise - part of Butler Auth. More specifically the REST API of Butler Auth has an endpoint named `/auth/google`.  
+The authentication module is - surprise - part of Butler Auth. More specifically the REST API of Butler Auth has an endpoint named `/auth/google`.
+
 With Butler Auth's REST API being hosted at `https://qliksenseauth.ptarmiganlabs.net:8761` (this is all set in the main config file), the full URL for the virtual proxy's authentication module is `https://qliksenseauth.ptarmiganlabs.net:8761/auth/google`.
 
 ## Customizing the demo site
@@ -61,10 +62,14 @@ If you want to try all the auth providers offered by Butler Auth, you need to cr
 
 An example of a virtual proxy configuration for Google authentication is found up above on this page.
 
-### Modify demo site
+### Modify the demo site
 
 The demo site is included in the GitHub repository and in the image on Docker Hub. It's located at `/src/html` in the GitHub repository.
 
 The html pages are reasonably basic, but a general understanding of html, css and Javascript is needed to understand how they work.
 
-The pages only use paths relative to the http server's base URL, meaning that the pages *should* work in your Sense environment without any changes. You might want to change look-and-feel etc though - feel free to use the provided pages as inspiration!
+You ***must*** do some changes before using the demo site with your Sense server. Failing to do this will cause the authentication flows to fail, simply because the demo site won't find your Sense server.  
+
+The needed changes are quite simple: Search for `https://senseprod.ptarmiganlabs.net` in all files in the demo site and replace that URL with the URL to your Sense server.
+
+Other than that, the pages only use paths relative to the http server's base URL, meaning that the pages *should* work in your Sense environment without any changes. You might want to change look-and-feel etc though - feel free to use the provided pages as inspiration!

@@ -3146,11 +3146,11 @@ In the screen shots below Okta&rsquo;s free tier is used - things might look dif
 <h2 id="the-demo-site---how-does-it-work">The demo site - how does it work?</h2>
 <p>Each auth provider included on the demo site has a link that takes the user to Qlik Sense.
 For example, clicking the Google icon the user will be sent to <code>https://senseprod.ptarmiganlabs.net/ba-google</code>.</p>
-<p>senseprod.ptarmiganlabs.net is a Qlik Sense Enterprise on Windows server, with a virtual proxy called <code>ba-google</code> (hint: ba=butlerauth).</p>
+<p><code>senseprod.ptarmiganlabs.net</code> is a Qlik Sense Enterprise on Windows server, with a virtual proxy called <code>ba-google</code> (hint: ba=butlerauth).</p>
 <p>That virtual proxy has the usual settings plus a link to a &ldquo;authentication module&rdquo; that should be used.</p>
 <p><img src="butlerauth-virtualproxy-google.png" alt="Virtual proxy using Butler Auth for Google authentication" title="Virtual proxy using Butler Auth for Google authentication"></p>
-<p>The authentication module is - surprise - part of Butler Auth. More specifically the REST API of Butler Auth has an endpoint named <code>/auth/google</code>.<br>
-With Butler Auth&rsquo;s REST API being hosted at <code>https://qliksenseauth.ptarmiganlabs.net:8761</code> (this is all set in the main config file), the full URL for the virtual proxy&rsquo;s authentication module is <code>https://qliksenseauth.ptarmiganlabs.net:8761/auth/google</code>.</p>
+<p>The authentication module is - surprise - part of Butler Auth. More specifically the REST API of Butler Auth has an endpoint named <code>/auth/google</code>.</p>
+<p>With Butler Auth&rsquo;s REST API being hosted at <code>https://qliksenseauth.ptarmiganlabs.net:8761</code> (this is all set in the main config file), the full URL for the virtual proxy&rsquo;s authentication module is <code>https://qliksenseauth.ptarmiganlabs.net:8761/auth/google</code>.</p>
 <h2 id="customizing-the-demo-site">Customizing the demo site</h2>
 <p>The list below should be a good starting point if you want to customize the demo site to your own server/network/Qlik Sense environment.</p>
 <h3 id="configure-http-server">Configure http server</h3>
@@ -3173,10 +3173,12 @@ Each virtual proxy implements exactly one authentication method, or uses anonymo
 <p>If you want to try all the auth providers offered by Butler Auth, you need to create one virtual proxy for each provider:</p>
 <p><img src="qliksense-virtualproxies.png" alt="Qlik Sense virtual proxies used together with Butler Auth" title="Qlik Sense virtual proxies used together with Butler Auth"></p>
 <p>An example of a virtual proxy configuration for Google authentication is found up above on this page.</p>
-<h3 id="modify-demo-site">Modify demo site</h3>
+<h3 id="modify-the-demo-site">Modify the demo site</h3>
 <p>The demo site is included in the GitHub repository and in the image on Docker Hub. It&rsquo;s located at <code>/src/html</code> in the GitHub repository.</p>
 <p>The html pages are reasonably basic, but a general understanding of html, css and Javascript is needed to understand how they work.</p>
-<p>The pages only use paths relative to the http server&rsquo;s base URL, meaning that the pages <em>should</em> work in your Sense environment without any changes. You might want to change look-and-feel etc though - feel free to use the provided pages as inspiration!</p>
+<p>You <em><strong>must</strong></em> do some changes before using the demo site with your Sense server. Failing to do this will cause the authentication flows to fail, simply because the demo site won&rsquo;t find your Sense server.</p>
+<p>The needed changes are quite simple: Search for <code>https://senseprod.ptarmiganlabs.net</code> in all files in the demo site and replace that URL with the URL to your Sense server.</p>
+<p>Other than that, the pages only use paths relative to the http server&rsquo;s base URL, meaning that the pages <em>should</em> work in your Sense environment without any changes. You might want to change look-and-feel etc though - feel free to use the provided pages as inspiration!</p>
 
 </div>
 
