@@ -21,7 +21,7 @@ enableMissingTranslationPlaceholders = true
 
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
-# Highlighting config
+# Docsy: Highlighting config
 pygmentsCodeFences = true
 pygmentsUseClasses = false
 # Use the new Chroma Go highlighter in Hugo.
@@ -76,7 +76,45 @@ time_format_blog = "2006.01.02"
       # Uncomment if you want your chosen highlight style used for code blocks without a specified language
       # guessSyntax = "true"
 
+# -------------------------
 # Everything below this are Site Params
+
+# Top-level navigation (horizontal)
+[[menu.main]]
+    name = "What is Butler Auth?"
+    weight = -103
+    url = "/docs/about/butler-auth/"
+#[[menu.main]]
+#    name = "Documentation"
+#    weight = -101
+#    url = "/docs/"
+# [[menu.main]]
+#     name = "Community"
+#     weight = -100
+#     url = "https://ptarmiganlabs.com"
+#[[menu.main]]
+#    name = "News"
+#    weight = -100
+#    url = "/blog"
+#[[menu.main]]
+#    name = "Blog"
+#    weight = -99
+#    url = "https://ptarmiganlabs.com"
+[[menu.main]]
+    name = "The Butler family"
+    weight = -98
+    url = "/docs/about/butler-family"
+#[[menu.main]]
+#    name = "About"
+#    weight = -97
+#    url = "/docs/about"
+# [[menu.main]]
+#     name = "GitHub"
+#     weight = -97
+#     url = "https://github.com/ptarmiganlabs/butler"
+
+
+
 
 # Comment out if you don't want the "print entire section" link enabled.
 [outputs]
@@ -189,6 +227,11 @@ enable = false
 [[params.links.developer]]
 	name = "Bug reports & Feature requests"
 	url = "https://github.com/ptarmiganlabs/butler-auth/issues/new/choose"
-	icon = "fab fa-github"
+	icon = "fa fa-bug"
         desc = "Let us know what's working, what's not and what's missing."
+[[params.links.developer]]
+	name = "Get in touch with Ptarmigan Labs"
+	url = "mailto://info@ptarmiganlabs.com"
+	icon = "fa fa-envelope"
+        desc = "Get in touch with Ptarmigan Labs around Butler Auth"
 

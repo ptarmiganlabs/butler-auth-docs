@@ -16,8 +16,7 @@
   </url>
   
   <url>
-    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/butler/</loc>
-    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/about/butler-auth/</loc>
   </url>
   
   <url>
@@ -94,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://butler-auth.ptarmiganlabs.com/docs/reference/-passport.js/</loc>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/reference/passport.js/</loc>
   </url>
   
   <url>
@@ -103,7 +102,6 @@
   
   <url>
     <loc>https://butler-auth.ptarmiganlabs.com/docs/about/butler-family/</loc>
-    <lastmod>2021-01-18T15:57:00+01:00</lastmod>
   </url>
   
   <url>
@@ -177,6 +175,10 @@
   <url>
     <loc>https://butler-auth.ptarmiganlabs.com/docs/legal-stuff/</loc>
     <lastmod>2021-01-18T15:57:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://butler-auth.ptarmiganlabs.com/docs/reference/images-artwork/</loc>
   </url>
   
   <url>

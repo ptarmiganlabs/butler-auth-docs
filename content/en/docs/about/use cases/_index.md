@@ -1,8 +1,8 @@
-+++ 
-title = "Use cases" 
-description = "How can Butler Auth be used?"
-weight = 30
-+++
+---
+title: "Use cases" 
+description: "How can Butler Auth be used?"
+weight: 30
+---
 
 {{% alert title="Disclaimer" color="warning" %}}
 All your use of Qlik Sense Enterprise on Windows is subject to the licensing and other terms you have received from Qlik.  
@@ -58,4 +58,3 @@ Given Sense's limits on number of simultaneous sessions, only a handful (or less
 Another use case would be to show a dashboard on a set of monitors in the office.
 
 *January 2021 note: Given how rarely people are in offices nowadays and the non-existing nature of trade shows, the use cases above might be pretty theoretical during coming months/years...*
-

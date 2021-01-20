@@ -27,7 +27,7 @@
 <meta itemprop="description" content="How to contribute to Butler Auth.
 ">
 <meta itemprop="dateModified" content="2021-01-18T15:57:00+01:00" />
-<meta itemprop="wordCount" content="283">
+<meta itemprop="wordCount" content="356">
 
 
 
@@ -77,6 +77,22 @@ if (!doNotTrack) {
 	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 		<ul class="navbar-nav mt-2 mt-lg-0">
 			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a  class="nav-link" href="/docs/about/butler-auth/" ><span>What is Butler Auth?</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a  class="nav-link" href="/docs/about/butler-family" ><span>The Butler family</span></a>
+			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
 				
@@ -173,7 +189,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler" href="/docs/about/butler/">Butler Auth</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-auth" href="/docs/about/butler-auth/">Butler Auth</a>
         
       
       
@@ -867,10 +883,35 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/-passport.js/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Passport.js</a>
+    <a  href="/docs/reference/passport.js/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Passport.js</a>
   </li>
   <ul>
-    <li class="collapse " id="docsreference-passportjs">
+    <li class="collapse " id="docsreferencepassportjs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/images-artwork/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Attribution</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferenceimages-artwork">
       
       
       
@@ -987,6 +1028,19 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#discussions">Discussions</a></li>
+    <li><a href="#contributing-to-butler-auth-and-this-documentation-site">Contributing to Butler Auth and this documentation site</a>
+      <ul>
+        <li><a href="#code-reviews">Code reviews</a></li>
+        <li><a href="#test-your-changes">Test your changes</a></li>
+        <li><a href="#creating-an-issue">Creating an issue</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 
           </div>
@@ -1048,10 +1102,6 @@ Specifically, most authentication providers are implemented using <a href="http:
 Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.</p>
 <p>All submissions, including submissions by project members, require review.<br>
 We use GitHub pull requests for this purpose. Consult <a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests">GitHub Help</a> for more information on using pull requests.</p>
-<h2 id="discussions">Discussions</h2>
-<p>We use <a href="https://github.com/ptarmiganlabs/butler-auth/discussions/1">GitHub&rsquo;s discussion boards</a> to discuss ideas, features, issues and everything else relating to Butler Auth.</p>
-<h2 id="creating-an-issue">Creating an issue</h2>
-<p>If you&rsquo;ve found a problem - or have a feature suggestion - with Butler Auth itself or the documentation, but you&rsquo;re not sure how to fix it yourself, please create an issue in the <a href="https://github.com/ptarmiganlabs/butler-auth/issues/new">Butler Auth repo</a>. You can also create an issue about a specific doc page by clicking the <strong>Create Issue</strong> button in the top right hand corner of the page.</p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -1061,6 +1111,17 @@ We use GitHub pull requests for this purpose. Consult <a href="https://docs.gith
 
 </div>
 
+<h2 id="discussions">Discussions</h2>
+<p>We use <a href="https://github.com/ptarmiganlabs/butler-auth/discussions/1">GitHub&rsquo;s discussion boards</a> to discuss ideas, features, issues and everything else relating to Butler Auth.</p>
+<h2 id="contributing-to-butler-auth-and-this-documentation-site">Contributing to Butler Auth and this documentation site</h2>
+<p>Butler Auth itself lives in <a href="https://github.com/ptarmiganlabs/butler-auth">https://github.com/ptarmiganlabs/butler-auth</a>.</p>
+<p>The doc site lives in <a href="https://github.com/ptarmiganlabs/butler-auth-docs">https://github.com/ptarmiganlabs/butler-auth-docs</a>.</p>
+<h3 id="code-reviews">Code reviews</h3>
+<p>All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult <a href="https://help.github.com/articles/about-pull-requests/">GitHub Help</a> for more information on using pull requests.</p>
+<h3 id="test-your-changes">Test your changes</h3>
+<p>As obvious as it might sound: Please test your proposed changes properly before submitting pull requests.</p>
+<h3 id="creating-an-issue">Creating an issue</h3>
+<p>If you&rsquo;ve found a problem - or have a feature suggestion - with Butler Auth or this documentation site, but you&rsquo;re not sure how to fix it yourself, please create an issue in the <a href="https://github.com/ptarmiganlabs/butler-auth/issues/new">Butler Auth</a> or <a href="https://github.com/ptarmiganlabs/butler-auth-docs/issues/new">Butler Auth docs</a> repos. You can also create an issue about a specific doc page by clicking the <strong>Create project issue</strong> button in the top right hand corner of the page.</p>
 
 	
 		<style>
@@ -1187,7 +1248,13 @@ We use GitHub pull requests for this purpose. Consult <a href="https://docs.gith
   
   <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
     <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler-auth/issues/new/choose">
-      <i class="fab fa-github"></i>
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="mailto://info@ptarmiganlabs.com">
+      <i class="fa fa-envelope"></i>
     </a>
   </li>
   
