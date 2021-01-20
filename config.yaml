@@ -29,7 +29,7 @@ imaging:
   anchor: smart
 services:
   googleAnalytics:
-    id: G-HE2K4LX1QL
+    id: UA-58487795-6
 languages:
   en:
     title: Butler Auth
