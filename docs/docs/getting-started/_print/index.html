@@ -389,28 +389,28 @@ There are also <a href="https://youtu.be/skdf%C3%B6dsklf">Youtube videos</a> sho
     
 	<h1 id="pg-c618e389e831f782ae93fff8f1d87e54">1 - Choosing an authentication solution</h1>
     <div class="lead">Authentication is about ensuring people are who they claim to be. This can be done in many ways with their respective pros, cons and security concerns.</div>
-	<p>There aren&rsquo;t really any right or wrong here.<br>
+	<p>There isn&rsquo;t really any right or wrong here.<br>
 What&rsquo;s right for your company might be unacceptable for another company, and vice versa.</p>
 <p>This page is intended to make you think and consider the options you have.</p>
 <h2 id="commercial-service-or-open-source">Commercial service or open source?</h2>
 <p>The authentication providers supported by Butler Auth generally belong to either of two categories:</p>
 <ul>
 <li>
-<p>Commercial identify and authentication providers such as Okta and Auth0.<br>
+<p>Commercial identity and authentication providers such as Okta and Auth0.<br>
 These companies have entire teams dedicated to creating secure solutions for their customers.
-But the transparency is non-existing. They will for sure use open standards like OAuth 2.0, OpenID etc - but you will never know exactly what the implementations look like.<br>
+But the transparency is limited or non-existing. They will for sure use open standards like OAuth 2.0, OpenID etc - but you will never know exactly what <em>their</em> specific implementations look like.<br>
 In other words: You will never be able to audit the code responsible for your authentication flow - you have to trust that these companies know what they are doing.</p>
 </li>
 <li>
 <p>Open source libraries provide full transparency. You can audit them if/when needed.<br>
-The downside is that these libraries are sometimes developed by individuals or companies that no longer actively maintain them. Which in worst case <em>could</em> mean that new security issues are discovered in the standard authentication protocol, but the open source libraries are not quickly updated - or not updated at all.
-While this is rare, it&rsquo;s a real possibility.</p>
+The downside is that these libraries are sometimes developed by individuals or companies that no longer actively maintain them. Which in worst case <em>could</em> mean that new security issues are discovered in a standard authentication protocol, but the open source libraries are not quickly updated - or not updated at all.<br>
+In this case you&rsquo;d be using a library with security issues associated with it. While this is rare, it&rsquo;s a real possibility.</p>
 </li>
 </ul>
 <h2 id="passportjs">Passport.js</h2>
 <p>Butler Auth relies heavily on the <a href="http://www.passportjs.org/packages/">authentication strategies</a> available via <a href="http://www.passportjs.org/">Passport.js</a>.</p>
-<p>This is an open source authentication library boasting 500+ various kinds of authentication variants.</p>
-<p>Now, there will be duplicates (several strategies all offering Google authentication) and most of those strategies will be rather obscure - with the associated risk of not being supported.<br>
+<p>This is an open source authentication library boasting 500+ various kinds of authentication strategies.</p>
+<p>Now, there will be some duplicates (for example several different Passport.js strategies offering Google authentication) and most of those 500+ strategies will be rather obscure - with the associated risk of not being supported.<br>
 The big ones - Google, Microsoft, generic OAuth 2.0, Auth0, LDAP, OpenID etc - are generall well supported and kept up to date.<br>
 For that reason they are also used in Butler Auth.</p>
 
@@ -428,7 +428,7 @@ For that reason they are also used in Butler Auth.</p>
 <p>So how should you reason if you have the luxury of deciding yourself what authentication solution to use?</p>
 <ul>
 <li>
-<p>If low cost is the main focus you should go with the big, established service providers. Google, Microsoft, GitHub, Amazon etc. By using open source authentication modules you won&rsquo;t have any cost for the software or service.<br>
+<p>If low cost and ease of setup is the main focus you should go with the big, established service providers. Google, Microsoft, GitHub, Amazon etc. By using open source authentication modules you won&rsquo;t have any cost for the software or service.<br>
 These are reasonably easy to set up and get working.</p>
 </li>
 <li>
@@ -557,18 +557,23 @@ You will need to work a bit on the command line to set things up.</p>
 <h2 id="installation-steps">Installation steps</h2>
 <p>The following steps give some guidance on how to get Butler Auth running on Docker.<br>
 Here Mac OS has been used, things will look different on Linux and Windows.</p>
-<!-- TODO: update Docker install instructions -->
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ mkdir /Users/goran/butler-auth
 ➜  ~ <span style="color:#204a87">cd</span> /Users/goran/butler-auth
 ➜  butler-auth mkdir -p config/certificate
 ➜  butler-auth mkdir sessions
 ➜  butler-auth mkdir log
-➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
---2021-01-19 07:07:23--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
-Resolving raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span>... 151.101.0.133, 151.101.192.133, 151.101.128.133, ...
-Connecting to raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span><span style="color:#000;font-weight:bold">|</span>151.101.0.133<span style="color:#000;font-weight:bold">|</span>:443... connected.
-HTTP request sent, awaiting response... <span style="color:#0000cf;font-weight:bold">404</span> Not Found
-2021-01-19 07:07:24 ERROR 404: Not Found.
+➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+--2021-01-20 13:58:54--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+Resolving raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span>... 151.101.128.133, 151.101.64.133, 151.101.192.133, ...
+Connecting to raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span><span style="color:#000;font-weight:bold">|</span>151.101.128.133<span style="color:#000;font-weight:bold">|</span>:443... connected.
+HTTP request sent, awaiting response... <span style="color:#0000cf;font-weight:bold">200</span> OK
+Length: <span style="color:#0000cf;font-weight:bold">754</span> <span style="color:#ce5c00;font-weight:bold">[</span>text/plain<span style="color:#ce5c00;font-weight:bold">]</span>
+Saving to: ‘docker-compose.yaml’
+
+docker-compose.yaml                                                   100%<span style="color:#ce5c00;font-weight:bold">[========================================================================================================================================================================</span>&gt;<span style="color:#ce5c00;font-weight:bold">]</span>     <span style="color:#0000cf;font-weight:bold">754</span>  --.-KB/s    in 0s
+
+2021-01-20 13:58:54 <span style="color:#ce5c00;font-weight:bold">(</span>37.8 MB/s<span style="color:#ce5c00;font-weight:bold">)</span> - ‘docker-compose.yaml’ saved <span style="color:#ce5c00;font-weight:bold">[</span>754/754<span style="color:#ce5c00;font-weight:bold">]</span>
+
 ➜  butler-auth
 ➜  butler-auth cat docker-compose.yaml
 <span style="color:#8f5902;font-style:italic"># docker-compose.yml</span>

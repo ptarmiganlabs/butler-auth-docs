@@ -274,18 +274,23 @@ You will need to work a bit on the command line to set things up.</p>
 <h2 id="installation-steps">Installation steps</h2>
 <p>The following steps give some guidance on how to get Butler Auth running on Docker.<br>
 Here Mac OS has been used, things will look different on Linux and Windows.</p>
-<!-- TODO: update Docker install instructions -->
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ mkdir /Users/goran/butler-auth
 ➜  ~ <span style="color:#204a87">cd</span> /Users/goran/butler-auth
 ➜  butler-auth mkdir -p config/certificate
 ➜  butler-auth mkdir sessions
 ➜  butler-auth mkdir log
-➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
---2021-01-19 07:07:23--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
-Resolving raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span>... 151.101.0.133, 151.101.192.133, 151.101.128.133, ...
-Connecting to raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span><span style="color:#000;font-weight:bold">|</span>151.101.0.133<span style="color:#000;font-weight:bold">|</span>:443... connected.
-HTTP request sent, awaiting response... <span style="color:#0000cf;font-weight:bold">404</span> Not Found
-2021-01-19 07:07:24 ERROR 404: Not Found.
+➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+--2021-01-20 13:58:54--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+Resolving raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span>... 151.101.128.133, 151.101.64.133, 151.101.192.133, ...
+Connecting to raw.githubusercontent.com <span style="color:#ce5c00;font-weight:bold">(</span>raw.githubusercontent.com<span style="color:#ce5c00;font-weight:bold">)</span><span style="color:#000;font-weight:bold">|</span>151.101.128.133<span style="color:#000;font-weight:bold">|</span>:443... connected.
+HTTP request sent, awaiting response... <span style="color:#0000cf;font-weight:bold">200</span> OK
+Length: <span style="color:#0000cf;font-weight:bold">754</span> <span style="color:#ce5c00;font-weight:bold">[</span>text/plain<span style="color:#ce5c00;font-weight:bold">]</span>
+Saving to: ‘docker-compose.yaml’
+
+docker-compose.yaml                                                   100%<span style="color:#ce5c00;font-weight:bold">[========================================================================================================================================================================</span>&gt;<span style="color:#ce5c00;font-weight:bold">]</span>     <span style="color:#0000cf;font-weight:bold">754</span>  --.-KB/s    in 0s
+
+2021-01-20 13:58:54 <span style="color:#ce5c00;font-weight:bold">(</span>37.8 MB/s<span style="color:#ce5c00;font-weight:bold">)</span> - ‘docker-compose.yaml’ saved <span style="color:#ce5c00;font-weight:bold">[</span>754/754<span style="color:#ce5c00;font-weight:bold">]</span>
+
 ➜  butler-auth
 ➜  butler-auth cat docker-compose.yaml
 <span style="color:#8f5902;font-style:italic"># docker-compose.yml</span>

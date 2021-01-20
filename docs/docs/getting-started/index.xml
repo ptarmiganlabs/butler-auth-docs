@@ -22,28 +22,28 @@
       <description>
         
         
-        &lt;p&gt;There aren&amp;rsquo;t really any right or wrong here.&lt;br&gt;
+        &lt;p&gt;There isn&amp;rsquo;t really any right or wrong here.&lt;br&gt;
 What&amp;rsquo;s right for your company might be unacceptable for another company, and vice versa.&lt;/p&gt;
 &lt;p&gt;This page is intended to make you think and consider the options you have.&lt;/p&gt;
 &lt;h2 id=&#34;commercial-service-or-open-source&#34;&gt;Commercial service or open source?&lt;/h2&gt;
 &lt;p&gt;The authentication providers supported by Butler Auth generally belong to either of two categories:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Commercial identify and authentication providers such as Okta and Auth0.&lt;br&gt;
+&lt;p&gt;Commercial identity and authentication providers such as Okta and Auth0.&lt;br&gt;
 These companies have entire teams dedicated to creating secure solutions for their customers.
-But the transparency is non-existing. They will for sure use open standards like OAuth 2.0, OpenID etc - but you will never know exactly what the implementations look like.&lt;br&gt;
+But the transparency is limited or non-existing. They will for sure use open standards like OAuth 2.0, OpenID etc - but you will never know exactly what &lt;em&gt;their&lt;/em&gt; specific implementations look like.&lt;br&gt;
 In other words: You will never be able to audit the code responsible for your authentication flow - you have to trust that these companies know what they are doing.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Open source libraries provide full transparency. You can audit them if/when needed.&lt;br&gt;
-The downside is that these libraries are sometimes developed by individuals or companies that no longer actively maintain them. Which in worst case &lt;em&gt;could&lt;/em&gt; mean that new security issues are discovered in the standard authentication protocol, but the open source libraries are not quickly updated - or not updated at all.
-While this is rare, it&amp;rsquo;s a real possibility.&lt;/p&gt;
+The downside is that these libraries are sometimes developed by individuals or companies that no longer actively maintain them. Which in worst case &lt;em&gt;could&lt;/em&gt; mean that new security issues are discovered in a standard authentication protocol, but the open source libraries are not quickly updated - or not updated at all.&lt;br&gt;
+In this case you&amp;rsquo;d be using a library with security issues associated with it. While this is rare, it&amp;rsquo;s a real possibility.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;passportjs&#34;&gt;Passport.js&lt;/h2&gt;
 &lt;p&gt;Butler Auth relies heavily on the &lt;a href=&#34;http://www.passportjs.org/packages/&#34;&gt;authentication strategies&lt;/a&gt; available via &lt;a href=&#34;http://www.passportjs.org/&#34;&gt;Passport.js&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This is an open source authentication library boasting 500+ various kinds of authentication variants.&lt;/p&gt;
-&lt;p&gt;Now, there will be duplicates (several strategies all offering Google authentication) and most of those strategies will be rather obscure - with the associated risk of not being supported.&lt;br&gt;
+&lt;p&gt;This is an open source authentication library boasting 500+ various kinds of authentication strategies.&lt;/p&gt;
+&lt;p&gt;Now, there will be some duplicates (for example several different Passport.js strategies offering Google authentication) and most of those 500+ strategies will be rather obscure - with the associated risk of not being supported.&lt;br&gt;
 The big ones - Google, Microsoft, generic OAuth 2.0, Auth0, LDAP, OpenID etc - are generall well supported and kept up to date.&lt;br&gt;
 For that reason they are also used in Butler Auth.&lt;/p&gt;
 
@@ -61,7 +61,7 @@ For that reason they are also used in Butler Auth.&lt;/p&gt;
 &lt;p&gt;So how should you reason if you have the luxury of deciding yourself what authentication solution to use?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;If low cost is the main focus you should go with the big, established service providers. Google, Microsoft, GitHub, Amazon etc. By using open source authentication modules you won&amp;rsquo;t have any cost for the software or service.&lt;br&gt;
+&lt;p&gt;If low cost and ease of setup is the main focus you should go with the big, established service providers. Google, Microsoft, GitHub, Amazon etc. By using open source authentication modules you won&amp;rsquo;t have any cost for the software or service.&lt;br&gt;
 These are reasonably easy to set up and get working.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;

@@ -239,18 +239,23 @@ With such icons available, Sense app developers can then use professional qualit
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The following steps give some guidance on how to get Butler Auth running on Docker.&lt;br&gt;
 Here Mac OS has been used, things will look different on Linux and Windows.&lt;/p&gt;
-&lt;!-- TODO: update Docker install instructions --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ mkdir /Users/goran/butler-auth
 ➜  ~ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler-auth
 ➜  butler-auth mkdir -p config/certificate
 ➜  butler-auth mkdir sessions
 ➜  butler-auth mkdir log
-➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
---2021-01-19 07:07:23--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
-Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 151.101.0.133, 151.101.192.133, 151.101.128.133, ...
-Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;151.101.0.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
-HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; Not Found
-2021-01-19 07:07:24 ERROR 404: Not Found.
+➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+--2021-01-20 13:58:54--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 151.101.128.133, 151.101.64.133, 151.101.192.133, ...
+Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;151.101.128.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
+HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; OK
+Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;754&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+Saving to: ‘docker-compose.yaml’
+
+docker-compose.yaml                                                   100%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[========================================================================================================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;754&lt;/span&gt;  --.-KB/s    in 0s
+
+2021-01-20 13:58:54 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;37.8 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - ‘docker-compose.yaml’ saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;754/754&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+
 ➜  butler-auth
 ➜  butler-auth cat docker-compose.yaml
 &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;

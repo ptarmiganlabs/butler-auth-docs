@@ -6,7 +6,7 @@ description: >
     Authentication is about ensuring people are who they claim to be. This can be done in many ways with their respective pros, cons and security concerns.
 ---
 
-There aren't really any right or wrong here.  
+There isn't really any right or wrong here.  
 What's right for your company might be unacceptable for another company, and vice versa.
 
 This page is intended to make you think and consider the options you have.
@@ -15,22 +15,22 @@ This page is intended to make you think and consider the options you have.
 
 The authentication providers supported by Butler Auth generally belong to either of two categories:
 
-- Commercial identify and authentication providers such as Okta and Auth0.  
+- Commercial identity and authentication providers such as Okta and Auth0.  
   These companies have entire teams dedicated to creating secure solutions for their customers.
-  But the transparency is non-existing. They will for sure use open standards like OAuth 2.0, OpenID etc - but you will never know exactly what the implementations look like.  
+  But the transparency is limited or non-existing. They will for sure use open standards like OAuth 2.0, OpenID etc - but you will never know exactly what *their* specific implementations look like.  
   In other words: You will never be able to audit the code responsible for your authentication flow - you have to trust that these companies know what they are doing.
 
 - Open source libraries provide full transparency. You can audit them if/when needed.  
-  The downside is that these libraries are sometimes developed by individuals or companies that no longer actively maintain them. Which in worst case *could* mean that new security issues are discovered in the standard authentication protocol, but the open source libraries are not quickly updated - or not updated at all.
-  While this is rare, it's a real possibility.
+  The downside is that these libraries are sometimes developed by individuals or companies that no longer actively maintain them. Which in worst case *could* mean that new security issues are discovered in a standard authentication protocol, but the open source libraries are not quickly updated - or not updated at all.  
+  In this case you'd be using a library with security issues associated with it. While this is rare, it's a real possibility.
 
 ## Passport.js
 
 Butler Auth relies heavily on the [authentication strategies](http://www.passportjs.org/packages/) available via [Passport.js](http://www.passportjs.org/).
 
-This is an open source authentication library boasting 500+ various kinds of authentication variants.
+This is an open source authentication library boasting 500+ various kinds of authentication strategies.
 
-Now, there will be duplicates (several strategies all offering Google authentication) and most of those strategies will be rather obscure - with the associated risk of not being supported.  
+Now, there will be some duplicates (for example several different Passport.js strategies offering Google authentication) and most of those 500+ strategies will be rather obscure - with the associated risk of not being supported.  
 The big ones - Google, Microsoft, generic OAuth 2.0, Auth0, LDAP, OpenID etc - are generall well supported and kept up to date.  
 For that reason they are also used in Butler Auth.
 
@@ -44,7 +44,7 @@ Butler Auth is simply a thin wrapper around those modules.
 
 So how should you reason if you have the luxury of deciding yourself what authentication solution to use?
 
-- If low cost is the main focus you should go with the big, established service providers. Google, Microsoft, GitHub, Amazon etc. By using open source authentication modules you won't have any cost for the software or service.  
+- If low cost and ease of setup is the main focus you should go with the big, established service providers. Google, Microsoft, GitHub, Amazon etc. By using open source authentication modules you won't have any cost for the software or service.  
 These are reasonably easy to set up and get working.
 
 - If you have high security requirements and prefer (or must use) open source, Keycloak is a good option.

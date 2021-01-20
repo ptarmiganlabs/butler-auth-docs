@@ -18,19 +18,25 @@ Prerequisites for running Butler Auth in Docker:
 
 The following steps give some guidance on how to get Butler Auth running on Docker.  
 Here Mac OS has been used, things will look different on Linux and Windows.
-<!-- TODO: update Docker install instructions -->
+
 ```bash
 ➜  ~ mkdir /Users/goran/butler-auth
 ➜  ~ cd /Users/goran/butler-auth
 ➜  butler-auth mkdir -p config/certificate
 ➜  butler-auth mkdir sessions
 ➜  butler-auth mkdir log
-➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
---2021-01-19 07:07:23--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.0.133, 151.101.192.133, 151.101.128.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.0.133|:443... connected.
-HTTP request sent, awaiting response... 404 Not Found
-2021-01-19 07:07:24 ERROR 404: Not Found.
+➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+--2021-01-20 13:58:54--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/main/src/docker-compose.yaml
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.128.133, 151.101.64.133, 151.101.192.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.128.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 754 [text/plain]
+Saving to: ‘docker-compose.yaml’
+
+docker-compose.yaml                                                   100%[========================================================================================================================================================================>]     754  --.-KB/s    in 0s
+
+2021-01-20 13:58:54 (37.8 MB/s) - ‘docker-compose.yaml’ saved [754/754]
+
 ➜  butler-auth
 ➜  butler-auth cat docker-compose.yaml
 # docker-compose.yml
