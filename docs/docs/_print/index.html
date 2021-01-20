@@ -881,11 +881,12 @@ In practice this means that QSEoW enforces that users only can access resources 
 This is quite reasonable - Qlik Sense is an analytics tool and should focus on this rather than the intricancies of ensuring that users are who they claim to be. That job is better left to those specializing in that particular field.</p>
 <p><em><strong>Butler Auth is the link between QSEoW and services that specialize in authentication and security.</strong></em></p>
 <h2 id="technology-stack">Technology stack</h2>
-<p>Butler Auth is written in <a href="https://nodejs.org/en/">Node.js</a> and runs on most modern operating systems.</p>
-<p>You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).</p>
+<p>Butler Auth is written in <a href="https://nodejs.org/en/">Node.js</a> and runs on most modern operating systems.<br>
+Some authentication providers are developed as part of the Butler Auth project, but most come from <a href="/docs/reference/passport.js/">Passport.js</a>.</p>
+<p>You can run Butler Auth on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).</p>
 <p>Butler Auth is a member of a group of tools collectively referred to as the &ldquo;Butler family&rdquo;, more info <a href="/docs/about/butler-family">here</a>.</p>
 <p>This picture might be useful to understand what Butle Auth does and how it fits into the larger system map around Qlik Sense:</p>
-<p><img src="/img/butler-auth-system-overview-1.png" alt="alt text" title="Butler Auth high level system overview"></p>
+<p><img src="butler-auth-system-overview-1.png" alt="alt text" title="Butler Auth high level system overview"></p>
 
 </div>
 

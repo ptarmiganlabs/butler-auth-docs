@@ -29,11 +29,12 @@ In practice this means that QSEoW enforces that users only can access resources 
 This is quite reasonable - Qlik Sense is an analytics tool and should focus on this rather than the intricancies of ensuring that users are who they claim to be. That job is better left to those specializing in that particular field.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;Butler Auth is the link between QSEoW and services that specialize in authentication and security.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;technology-stack&#34;&gt;Technology stack&lt;/h2&gt;
-&lt;p&gt;Butler Auth is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
-&lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
+&lt;p&gt;Butler Auth is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;br&gt;
+Some authentication providers are developed as part of the Butler Auth project, but most come from &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/reference/passport.js/&#34;&gt;Passport.js&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can run Butler Auth on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
 &lt;p&gt;Butler Auth is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This picture might be useful to understand what Butle Auth does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://butler-auth.ptarmiganlabs.com/img/butler-auth-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler Auth high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butler-auth-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler Auth high level system overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>

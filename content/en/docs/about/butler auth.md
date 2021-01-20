@@ -18,12 +18,13 @@ This is quite reasonable - Qlik Sense is an analytics tool and should focus on t
 
 ## Technology stack
 
-Butler Auth is written in [Node.js](https://nodejs.org/en/) and runs on most modern operating systems.
+Butler Auth is written in [Node.js](https://nodejs.org/en/) and runs on most modern operating systems.  
+Some authentication providers are developed as part of the Butler Auth project, but most come from [Passport.js](/docs/reference/passport.js/).
 
-You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).
+You can run Butler Auth on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).
 
 Butler Auth is a member of a group of tools collectively referred to as the "Butler family", more info [here](/docs/about/butler-family).
 
 This picture might be useful to understand what Butle Auth does and how it fits into the larger system map around Qlik Sense:
 
-![alt text](/img/butler-auth-system-overview-1.png "Butler Auth high level system overview")  
+![alt text](butler-auth-system-overview-1.png "Butler Auth high level system overview")  
