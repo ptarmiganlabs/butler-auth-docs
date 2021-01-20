@@ -40,7 +40,7 @@ keycloak:                           # "Keycloak" provider
 
 General steps to set up Keycloak for use with Butler Auth.  
 
-In the examples below Keycloak is available at http://qliksenseauth.ptarmiganlabs.net:8082.  
+In the examples below Keycloak is available at `http://qliksenseauth.ptarmiganlabs.net:8082`.  
 This works for demonstration purposes, but in a production scenario https should be used.
 
 1. Log in to the Keycloak admin console.

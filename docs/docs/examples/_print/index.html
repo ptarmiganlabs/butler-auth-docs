@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.80.0" /><link rel="canonical" type="text/html" href="https://butler-auth.ptarmiganlabs.com/docs/examples/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://butler-auth.ptarmiganlabs.com/docs/examples/index.xml">
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
 
@@ -806,7 +807,7 @@ Click &ldquo;Create&rdquo;.</li>
 </table>
 <h2 id="keycloak-configuration">Keycloak configuration</h2>
 <p>General steps to set up Keycloak for use with Butler Auth.</p>
-<p>In the examples below Keycloak is available at <a href="http://qliksenseauth.ptarmiganlabs.net">http://qliksenseauth.ptarmiganlabs.net</a>:8082.<br>
+<p>In the examples below Keycloak is available at <code>http://qliksenseauth.ptarmiganlabs.net:8082</code>.<br>
 This works for demonstration purposes, but in a production scenario https should be used.</p>
 <ol>
 <li>
@@ -953,8 +954,8 @@ Open the <code>Users</code> menu on the left. Click the <code>Add user</code> bu
 <h3 id="using-butler-auths-built-in-login-page">Using Butler Auth&rsquo;s built-in login page</h3>
 <p>If you want to use the built-in login page to begin with, it&rsquo;s configured like this:</p>
 <ol>
-<li>Let&rsquo;s assume Butler Auth is hosted at <a href="https://butlerauth.company.com">https://butlerauth.company.com</a>, with the http server set up to listen on port 8081.<br>
-The demo web UI showing all the authentication providers is then available at <a href="https://butlerauth.company.com">https://butlerauth.company.com</a>:8081/auth-providers.html.</li>
+<li>Let&rsquo;s assume Butler Auth is hosted at <code>https://butlerauth.company.com</code>, with the http server set up to listen on port 8081.<br>
+The demo web UI showing all the authentication providers is then available at <code>https://butlerauth.company.com:8081/auth-providers.html</code>.</li>
 <li>In order to use the demo login page you should set the <code>ButlerAuth.authProvider.ldap.url</code> to <code>https://butlerauth.company.com:8081</code></li>
 </ol>
 <p>Here is the built-in LDAP login page:</p>
@@ -1026,8 +1027,8 @@ The demo web UI showing all the authentication providers is then available at <a
 <h3 id="using-butler-auths-built-in-login-page">Using Butler Auth&rsquo;s built-in login page</h3>
 <p>If you want to use the built-in login page to begin with, it&rsquo;s configured like this:</p>
 <ol>
-<li>Let&rsquo;s assume Butler Auth is hosted at <a href="https://butlerauth.company.com">https://butlerauth.company.com</a>, with the http server set up to listen on port 8081.<br>
-The demo web UI showing all the authentication providers is then available at <a href="https://butlerauth.company.com">https://butlerauth.company.com</a>:8081/auth-providers.html.</li>
+<li>Let&rsquo;s assume Butler Auth is hosted at <code>https://butlerauth.company.com</code>, with the http server set up to listen on port 8081.<br>
+The demo web UI showing all the authentication providers is then available at <code>https://butlerauth.company.com:8081/auth-providers.html</code>.</li>
 <li>In order to use the demo login page you should set the <code>ButlerAuth.authProvider.localFile.url</code> to <code>https://butlerauth.company.com:8081</code></li>
 </ol>
 <p>Here is the built-in local file login page:</p>

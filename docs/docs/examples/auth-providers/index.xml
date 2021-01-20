@@ -1,0 +1,749 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler Auth – Auth providers</title>
+    <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/</link>
+    <description>Recent content in Auth providers on Butler Auth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Auth0</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/auth0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/auth0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Auth0 is an interesting authentication provider in that they offer both a user directory service, but also &amp;ldquo;passthrough authentication&amp;rdquo; to other auth providers such as Google, GitHub, Microsoft etc.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s thus possible to set up Butler Auth to work with Auth0, and then via Auth0 get access to their entire list of supported auth providers.&lt;/p&gt;
+&lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auth0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                              &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Auth0&amp;#34; provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userIdShort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If true, the email domain will be removed. I.e. &amp;#34;joe.smith@domain.com&amp;#34; will be changed to &amp;#34;joe.smith&amp;#34;.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;issuerBaseURL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;FQDN&amp;gt;          &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# E.g. mycompany.eu.auth0.com&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;baseURL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;URL&amp;gt;                 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# FQDN of Butler Auth, e.g. https://qliksenseauth.mycompany.com:8761&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientId&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client ID&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientSecret&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client secret&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userIdShort&lt;/td&gt;
+&lt;td&gt;The provider will return the user&amp;rsquo;s email address. If &lt;code&gt;userIdShort&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the @ character and email domain will be stripped from the email address returned by the provider. For example, &amp;ldquo;&lt;a href=&#34;mailto:joe@company.com&#34;&gt;joe@company.com&lt;/a&gt;&amp;rdquo; would become just &amp;ldquo;joe&amp;rdquo;. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;issuerBaseURL&lt;/td&gt;
+&lt;td&gt;The URL pointing to Auth0&amp;rsquo;s service. You get this from Auth0. For Ptarmigan Labs (who&amp;rsquo;s located in Europe/EU), the URL could be &lt;code&gt;ptarmiganlabs.eu.auth0.com&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;baseURL&lt;/td&gt;
+&lt;td&gt;URL to Butler Auth. For Ptarmigan Labs this could be &lt;code&gt;https://qliksenseauth.ptarmiganlabs.net:8761&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;Client ID from Auth0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientSecret&lt;/td&gt;
+&lt;td&gt;Client secret from Auth0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;auth0-configuration&#34;&gt;Auth0 configuration&lt;/h2&gt;
+&lt;p&gt;These are the general steps to set up Auth0 for use with Butler Auth.&lt;/p&gt;
+&lt;h3 id=&#34;create-application&#34;&gt;Create application&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log in to your Auth0 dasboard (&lt;a href=&#34;https://manage.auth0.com/dashboard&#34;&gt;https://manage.auth0.com/dashboard&lt;/a&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the applications section, then create a new application. You can go through the step-by-step wizard, but it&amp;rsquo;s usually easier to just fill in the needed fields on the Settings tab.
+&lt;img src=&#34;auth0-applications.png&#34; alt=&#34;Auth0 applications&#34; title=&#34;Auth0 applications&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fill in the specifics of your application on the Settings tab. There are lots of fields here, the important ones are&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Name&lt;/code&gt;: Application&amp;rsquo;s name. &amp;ldquo;Qlik Sense Enterprise&amp;rdquo; or &amp;ldquo;Butler Auth&amp;rdquo; could be good names, but anything goes.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Description&lt;/code&gt;: Not mandatory, but it&amp;rsquo;s a good idea to write down a few words what the Auth0 does and its intended use cases.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Application Logo&lt;/code&gt;: If you want your users to see a logo when authentication, this is where it&amp;rsquo;s set.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Application Type&lt;/code&gt;: Set to &amp;ldquo;Regular Web Application&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Token Endpoint Authentication Method&lt;/code&gt;: Set to &amp;ldquo;Post&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Allowed Callback URLs&lt;/code&gt;: This one is important from a security perspective. Set to the fully qualified domain name (FQDN) of Butler Auth, for example &lt;code&gt;https://qliksenseauth.ptarmiganlabs.net:8761/auth/auth0/redirect&lt;/code&gt;. This is a list of URLs that Auth0 is authorized to call back to once the user has been successfully authenticated.&lt;/li&gt;
+&lt;li&gt;The rest of the fields on the Settings tab can be left at default values. But do review then anyway - your specific use case may require some additional settings to be set!
+&lt;img src=&#34;auth0-create-application.png&#34; alt=&#34;Auth0 create application&#34; title=&#34;Auth0 create application&#34;&gt;&lt;br&gt;
+&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move on to the Connections tab. If you have previously set up &amp;ldquo;connections&amp;rdquo; (which is Auth0&amp;rsquo;s word for other authentication providers), this is where you enable them.
+&lt;img src=&#34;auth0-create-application-connections.png&#34; alt=&#34;Auth0 connections&#34; title=&#34;Auth0 connections&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Facebook</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/facebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/facebook/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Facebook offers authentication using OAuth 2.0.&lt;/p&gt;
+&lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;facebook&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                           &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Facebook&amp;#34; OAuth2 provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userIdShort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If true, the email domain will be removed. I.e. &amp;#34;joe.smith@domain.com&amp;#34; will be changed to &amp;#34;joe.smith&amp;#34;.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientId&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client ID&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientSecret&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client secret&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userIdShort&lt;/td&gt;
+&lt;td&gt;The provider will return the user&amp;rsquo;s email address. If &lt;code&gt;userIdShort&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the @ character and email domain will be stripped from the email address returned by the provider. For example, &amp;ldquo;&lt;a href=&#34;mailto:joe@company.com&#34;&gt;joe@company.com&lt;/a&gt;&amp;rdquo; would become just &amp;ldquo;joe&amp;rdquo;. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;Client ID from Facebook&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientSecret&lt;/td&gt;
+&lt;td&gt;Client secret from Facebook&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;facebook-configuration&#34;&gt;Facebook configuration&lt;/h2&gt;
+&lt;p&gt;General steps to set up Facebook Login for use with Butler Auth.&lt;/p&gt;
+&lt;h3 id=&#34;create-application&#34;&gt;Create application&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log in to Facebook&amp;rsquo;s developer site &lt;a href=&#34;https://developers.facebook.com&#34;&gt;https://developers.facebook.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the &lt;a href=&#34;https://developers.facebook.com/apps/&#34;&gt;applications section&lt;/a&gt;, then create a new application:&lt;br&gt;
+&amp;ldquo;Create App&amp;rdquo; &amp;gt; &amp;ldquo;Build Connected Experiences&amp;rdquo; &amp;gt; Enter app name and contact email &amp;gt; &amp;ldquo;Create App&amp;rdquo; &amp;gt; &amp;ldquo;Not a robot..&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the Facebook Login product to the newly created app:&lt;br&gt;
+Click &amp;ldquo;Set Up&amp;rdquo; on the Facebook Login product &amp;gt; &amp;ldquo;Other&amp;rdquo; as platform.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open the basic settings:&lt;br&gt;
+&lt;img src=&#34;facebook-basic-settings.png&#34; alt=&#34;Facebook basic settings&#34; title=&#34;Facebook basic settings&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Set a &amp;ldquo;Display Name&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Enter a relevant &amp;ldquo;Contact Email&amp;rdquo; address.&lt;/li&gt;
+&lt;li&gt;Enter a link for your &amp;ldquo;Privacy Policy URL&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Enter a link to your GDPR policy (or similar).&lt;/li&gt;
+&lt;li&gt;Upload an app icon. It will be shown to users when authenticating via Facebook.&lt;/li&gt;
+&lt;li&gt;Review remaining fields and fill in as needed for your specific use case.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the &lt;code&gt;App ID&lt;/code&gt; and &lt;code&gt;App Secret&lt;/code&gt; from the screen above to the Butler Auth config file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Google</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/google/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/google/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Google offers authentication using OAuth 2.0.&lt;/p&gt;
+&lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;google&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                             &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Google&amp;#34; OAuth2 provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userIdShort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If true, the email domain will be removed. I.e. &amp;#34;joe.smith@domain.com&amp;#34; will be changed to &amp;#34;joe.smith&amp;#34;.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientId&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client ID&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientSecret&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client secret&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userIdShort&lt;/td&gt;
+&lt;td&gt;The provider will return the user&amp;rsquo;s email address. If &lt;code&gt;userIdShort&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the @ character and email domain will be stripped from the email address returned by the provider. For example, &amp;ldquo;&lt;a href=&#34;mailto:joe@company.com&#34;&gt;joe@company.com&lt;/a&gt;&amp;rdquo; would become just &amp;ldquo;joe&amp;rdquo;. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;Client ID from Google&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientSecret&lt;/td&gt;
+&lt;td&gt;Client secret from Google&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;google-configuration&#34;&gt;Google configuration&lt;/h2&gt;
+&lt;p&gt;General steps to set up Google for use with Butler Auth.&lt;/p&gt;
+&lt;h3 id=&#34;create-application&#34;&gt;Create application&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to &lt;a href=&#34;https://console.developers.google.com&#34;&gt;Google Cloud&lt;/a&gt;. The &lt;a href=&#34;https://console.cloud.google.com/home/dashboard&#34;&gt;dashboard&lt;/a&gt; provides a good overview of your Google cloud assets.&lt;/li&gt;
+&lt;li&gt;Go to the &amp;ldquo;Credentials&amp;rdquo; section (&lt;a href=&#34;https://console.developers.google.com/apis/credentials&#34;&gt;https://console.developers.google.com/apis/credentials&lt;/a&gt;) of the &lt;a href=&#34;https://console.developers.google.com/apis/dashboard&#34;&gt;API &amp;amp; Services&lt;/a&gt; page. Make sure to select the correct project in the drop-down at the top of the page.&lt;/li&gt;
+&lt;li&gt;Create a new client ID:
+&lt;ol&gt;
+&lt;li&gt;&amp;ldquo;CREATE CREDENTIALS&amp;rdquo; (button at top) &amp;gt; &amp;ldquo;OAuth client ID&amp;rdquo; &amp;gt; Application typ &amp;ldquo;Web application&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Enter desired name in the &amp;ldquo;Name&amp;rdquo; field.&lt;/li&gt;
+&lt;li&gt;Add valid callback URIs. The one responsible for Butler Auth is &lt;code&gt;https://&amp;lt;FQDN of Butler Auth&amp;gt;:&amp;lt;Butler Auth REST port&amp;gt;/oauth2callback&lt;/code&gt;. Note that Butler Auth&amp;rsquo;s REST API port can be changed in the main config file of Butler Auth. At least one URI is required.&lt;br&gt;
+Click &amp;ldquo;Create&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;Take note of the client ID and secret. Copy them to the corresponding fields in Buther Auth&amp;rsquo;s config file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Set up an &lt;a href=&#34;https://console.developers.google.com/apis/credentials/consent&#34;&gt;OAuth consent screen&lt;/a&gt; that will be shown to users when they authenticate to Qlik Sense using their Google credentials.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Keycloak</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/keycloak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/keycloak/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;keycloak&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                           &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Keycloak&amp;#34; provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userIdShort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If true, the email domain will be removed. I.e. &amp;#34;joe.smith@domain.com&amp;#34; will be changed to &amp;#34;joe.smith&amp;#34;.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientId&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client ID&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientSecret&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client secret&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;FQDN of Keycloak server&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# E.g. https://keycloak.mydomain.com&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;realm&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                          &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# E.g. ptarmiganlabs&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;authorizationURL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;URL&amp;gt;        &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# E.g. https://keycloak.mydomain.com/auth/realms/&amp;lt;myrealm&amp;gt;/protocol/openid-connect/auth&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tokenURL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;URL&amp;gt;                &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# E.g. https://keycloak.mydomain.com/auth/realms/&amp;lt;myrealm&amp;gt;/protocol/openid-connect/token&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userInfoURL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;URL&amp;gt;             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# E.g. https://keycloak.mydomain.com/auth/realms/&amp;lt;myrealm&amp;gt;/protocol/openid-connect/userinfo&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userIdShort&lt;/td&gt;
+&lt;td&gt;The provider will return the user&amp;rsquo;s email address. If &lt;code&gt;userIdShort&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the @ character and email domain will be stripped from the email address returned by the provider. For example, &amp;ldquo;&lt;a href=&#34;mailto:joe@company.com&#34;&gt;joe@company.com&lt;/a&gt;&amp;rdquo; would become just &amp;ldquo;joe&amp;rdquo;. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;Client ID from Keycloak&amp;rsquo;s &lt;code&gt;*realm*&lt;/code&gt; &amp;gt; &lt;code&gt;Clients&lt;/code&gt; &amp;gt; &lt;code&gt;*client*&lt;/code&gt; &amp;gt; &lt;code&gt;Settings&lt;/code&gt; page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientSecret&lt;/td&gt;
+&lt;td&gt;Client secret from Keycloak&amp;rsquo;s &lt;code&gt;*realm*&lt;/code&gt; &amp;gt; &lt;code&gt;Clients&lt;/code&gt; &amp;gt; &lt;code&gt;*client*&lt;/code&gt; &amp;gt; &lt;code&gt;Credentials&lt;/code&gt; page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;host&lt;/td&gt;
+&lt;td&gt;Full URL to Keycloak&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;realm&lt;/td&gt;
+&lt;td&gt;Keycloak realm to use.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;authorizationURL&lt;/td&gt;
+&lt;td&gt;See below for instruction on how to get this.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tokenURL&lt;/td&gt;
+&lt;td&gt;See below for instruction on how to get this.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userInfoURL&lt;/td&gt;
+&lt;td&gt;See below for instruction on how to get this.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;keycloak-configuration&#34;&gt;Keycloak configuration&lt;/h2&gt;
+&lt;p&gt;General steps to set up Keycloak for use with Butler Auth.&lt;/p&gt;
+&lt;p&gt;In the examples below Keycloak is available at &lt;code&gt;http://qliksenseauth.ptarmiganlabs.net:8082&lt;/code&gt;.&lt;br&gt;
+This works for demonstration purposes, but in a production scenario https should be used.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log in to the Keycloak admin console.
+&lt;img src=&#34;keycloak.png&#34; alt=&#34;Keycloak&#34; title=&#34;Keycloak&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you don&amp;rsquo;t already have a Keycloak &lt;em&gt;realm&lt;/em&gt;, create one via the menu in the upper left corner.
+&lt;img src=&#34;keycloak-addrealm-1.png&#34; alt=&#34;Keycloak add realm&#34; title=&#34;Keycloak add realm&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fill in the realm settings. The screen shots below only gives some guidance, you are &lt;em&gt;&lt;strong&gt;STRONGLY&lt;/strong&gt;&lt;/em&gt; encouraged to review all settings. The &lt;code&gt;Frontend URL&lt;/code&gt; is the URL where Butler Auth will call Keycloak.
+&lt;img src=&#34;keycloak-general-1.png&#34; alt=&#34;Keycloak realm general&#34; title=&#34;Keycloak realm general&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open the &lt;code&gt;Clients&lt;/code&gt; menu on the left. Add a new one.
+&lt;img src=&#34;keycloak-clients-add-1.png&#34; alt=&#34;Keycloak clients add&#34; title=&#34;Keycloak clients add&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fill in the details of the new client.
+&lt;img src=&#34;keycloak-client-config-1.png&#34; alt=&#34;Keycloak client 1&#34; title=&#34;Keycloak client 1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;hellip; and lower part of that page&amp;hellip;&lt;br&gt;
+The &lt;code&gt;Valid Redirect URIs&lt;/code&gt; is a list of approved/allowed sources. Only calls originating from these URIs will be handled by this Keycloak realm/client.&lt;br&gt;
+In our case, this is the callback URL of Butler Auth.
+&lt;img src=&#34;keycloak-client-config-2.png&#34; alt=&#34;Keycloak client 2&#34; title=&#34;Keycloak client 2&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The &lt;code&gt;Credentials&lt;/code&gt; tab contains the Client secret that should be copied to Butler Auth.
+&lt;img src=&#34;keycloak-client-config-credentials-1.png&#34; alt=&#34;Keycloak client credentials&#34; title=&#34;Keycloak client credentials&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The settings on the remaining tabs of the client configuration are used to fine-tune the authentication setup. The default values should work as a starting point though.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you don&amp;rsquo;t already have any users in Keycloak it&amp;rsquo;s easy to set up one for testing purposes.
+Open the &lt;code&gt;Users&lt;/code&gt; menu on the left. Click the &lt;code&gt;Add user&lt;/code&gt; button in upper right corner.
+&lt;img src=&#34;keycloak-users-1.png&#34; alt=&#34;Keycloak users&#34; title=&#34;Keycloak users&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;keycloak-users-add-1.png&#34; alt=&#34;Keycloak users add&#34; title=&#34;Keycloak users add&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;keycloak-identity-brokering&#34;&gt;Keycloak Identity Brokering&lt;/h3&gt;
+&lt;p&gt;Keycloak has a cool feature similar to the one offered by &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/auth0&#34;&gt;Auth0&lt;/a&gt;, where you can use another, 3rd party identity provider for the actual authentication work.&lt;/p&gt;
+&lt;p&gt;For example, you can set up Butler Auth to use Keycloak (and have all the benefits offered by Keycloak), and then have Keycloak forward the authentication requqests to IdPs such as Microsoft, Google, Facebook, LinkedIn, Twitter, GitHub and others.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: LDAP</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/ldap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/ldap/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ldap&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;LDAP&amp;#34; provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;https://&amp;lt;FQDN&amp;gt;:8081       &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# URL where login UI for this provider is available&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ldapServer&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                     &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Information about the LDAP server to authenticate against&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;ldap(s)://ldap.mydomain.com&amp;gt;   &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Both normal (ldap://) and secure (ldaps://) LDAP is supported&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;636&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                   &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Usually 389 for LDAP and 636 for LDAPS&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;bindUser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;domain\username&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;       &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Service account used to log into the LDAP server&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;bindPwd&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;password&amp;gt;        &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Password of service account&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;searchBase&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;lt;dc=...,dc=...,dc=...&amp;gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Base path from which authentication attempts will start&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;searchFilter&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;(&amp;amp;(objectcategory=person)(objectclass=user)(|(samaccountname={{username}})(mail={{username}})))&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Filter used to get info about users in LDAP server&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tls&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; 
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Settings here will override default TLS behaviour. &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Useful for example if your cert is for another domain wrt the host name of the LDAP server.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If a setting is empty it will simply be ignored by Butler Auth.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Necessary if the LDAP server isusing a self-signed certificate&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should point to a PEM coded CA certificate file.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ca&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;url&lt;/td&gt;
+&lt;td&gt;Tells Butler Auth where it should send the user when it&amp;rsquo;s time to enter his/her username and password. A basic web page for entering LDAP credentials is included in Butler Auth, but for production scenarios you probably want to create your own login page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;host&lt;/td&gt;
+&lt;td&gt;Host where LDAP server is running. &lt;code&gt;ldap://ldap.mydomain.com&lt;/code&gt; is insecure/not encryptet, &lt;code&gt;ldaps://ldap.mydomain.com&lt;/code&gt; is secure. Use ldaps if possible.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;port&lt;/td&gt;
+&lt;td&gt;Port to use on LDAP server. Usually 636 for ldaps, 389 for ldap.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bindUser&lt;/td&gt;
+&lt;td&gt;User to log in with on LDAP server. Usually a service account of some kind.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bindPwd&lt;/td&gt;
+&lt;td&gt;Password for bindUser.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;searchBase&lt;/td&gt;
+&lt;td&gt;The base path from which authentication attempts will be done. For an Active Directory domain called &lt;code&gt;sales&lt;/code&gt; at company &lt;code&gt;mycompany.com&lt;/code&gt; it could be &lt;code&gt;dc=sales,dc=mycompany,dc=com&#39;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;searchFilter&lt;/td&gt;
+&lt;td&gt;Filter used to determine if a user exists in the LDAP server. The example above should be a good starting point for standard-install Active Directory servers.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ca&lt;/td&gt;
+&lt;td&gt;If ldaps is used and the LDAP server is configured with proper certificates that use publicly recognizable certificate authorities, this &lt;code&gt;ca&lt;/code&gt; section is not needed. If self-signed certificates are used you need to specify the CA certificate here for ldaps to work.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;using-butler-auths-built-in-login-page&#34;&gt;Using Butler Auth&amp;rsquo;s built-in login page&lt;/h3&gt;
+&lt;p&gt;If you want to use the built-in login page to begin with, it&amp;rsquo;s configured like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Let&amp;rsquo;s assume Butler Auth is hosted at &lt;code&gt;https://butlerauth.company.com&lt;/code&gt;, with the http server set up to listen on port 8081.&lt;br&gt;
+The demo web UI showing all the authentication providers is then available at &lt;code&gt;https://butlerauth.company.com:8081/auth-providers.html&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In order to use the demo login page you should set the &lt;code&gt;ButlerAuth.authProvider.ldap.url&lt;/code&gt; to &lt;code&gt;https://butlerauth.company.com:8081&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is the built-in LDAP login page:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butlerauth-ldap-loginpage.png&#34; alt=&#34;LDAP demo login page&#34; title=&#34;LDAP demo login page&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ldap-configuration&#34;&gt;LDAP configuration&lt;/h2&gt;
+&lt;p&gt;Configuring the directory server (which Butler Auth talks to using the LDAP protocol) is beyond the scope of this site.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Local file</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/local-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/local-file/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;localFile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                          &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Local file&amp;#34; provider reads user data from a file on disk&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                    
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;https://&amp;lt;FQDN&amp;gt;:8081       &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# URL where login UI for this provider is available&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userFile&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;./config/users.yaml  &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# YAML file containing usernames and passwords&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;url&lt;/td&gt;
+&lt;td&gt;Tells Butler Auth where it should send the user when it&amp;rsquo;s time to enter his/her username and password. A basic web page for entering local-file credentials is included in Butler Auth, but for production scenarios you probably want to create your own login page.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userFile&lt;/td&gt;
+&lt;td&gt;A YAML file containing usernames and passwords.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;using-butler-auths-built-in-login-page&#34;&gt;Using Butler Auth&amp;rsquo;s built-in login page&lt;/h3&gt;
+&lt;p&gt;If you want to use the built-in login page to begin with, it&amp;rsquo;s configured like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Let&amp;rsquo;s assume Butler Auth is hosted at &lt;code&gt;https://butlerauth.company.com&lt;/code&gt;, with the http server set up to listen on port 8081.&lt;br&gt;
+The demo web UI showing all the authentication providers is then available at &lt;code&gt;https://butlerauth.company.com:8081/auth-providers.html&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In order to use the demo login page you should set the &lt;code&gt;ButlerAuth.authProvider.localFile.url&lt;/code&gt; to &lt;code&gt;https://butlerauth.company.com:8081&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here is the built-in local file login page:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butlerauth-localfile-loginpage.png&#34; alt=&#34;Local file demo login page&#34; title=&#34;Local file demo login page&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;userfile-format&#34;&gt;Userfile format&lt;/h2&gt;
+&lt;p&gt;The file containing user credentials is YAML-formatted:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;users&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;username&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;anna&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fullName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Anna Svenson&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;aaa&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;comment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Root admin user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;username&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;joe&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fullName&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Joe Jonson&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;bbb&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;comment&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Regular user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
+
+    &lt;p&gt;Make sure to secure this file properly.&lt;/p&gt;
+&lt;p&gt;Anyone with access to this file can log into Qlik Sense as any of the users in the file.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Microsoft</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/microsoft/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/microsoft/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;microsoft&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                          &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Microsoft&amp;#34; OAuth2 provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userIdShort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If true, the email domain will be removed. I.e. &amp;#34;joe.smith@domain.com&amp;#34; will be changed to &amp;#34;joe.smith&amp;#34;.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientId&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;client ID&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientSecret&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userIdShort&lt;/td&gt;
+&lt;td&gt;The provider will return the user&amp;rsquo;s email address. If &lt;code&gt;userIdShort&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the @ character and email domain will be stripped from the email address returned by the provider. For example, &amp;ldquo;&lt;a href=&#34;mailto:joe@company.com&#34;&gt;joe@company.com&lt;/a&gt;&amp;rdquo; would become just &amp;ldquo;joe&amp;rdquo;. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;Client ID from Microsoft&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientSecret&lt;/td&gt;
+&lt;td&gt;Client secret from Microsoft&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;microsoft-configuration&#34;&gt;Microsoft configuration&lt;/h2&gt;
+&lt;p&gt;These are the general steps to set up Microsoft for use with Butler Auth.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Log in to the &lt;a href=&#34;https://portal.azure.com&#34;&gt;Miceosoft Azure portal&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Go to the &lt;a href=&#34;https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade&#34;&gt;App registrations&lt;/a&gt; page.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The screen shots below show a minimum configuration - you should review all fields to make sure the configuration is correct for your specific use case.&lt;/p&gt;
+&lt;p&gt;On the &lt;em&gt;application overview&lt;/em&gt; tab you find the Client ID, among other things.
+&lt;img src=&#34;microsoft-application-1.png&#34; alt=&#34;Microsoft application overview&#34; title=&#34;Microsoft application overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;On the &lt;em&gt;Branding tab&lt;/em&gt; you can upload an image that&amp;rsquo;s shown when users authenticate.
+&lt;img src=&#34;microsoft-application-branding-1.png&#34; alt=&#34;Microsoft application branding&#34; title=&#34;Microsoft application ovewview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;On the &lt;em&gt;Authentication tab&lt;/em&gt; you set the Redirect URIs. This is the URL where Butler Auth is running, appended with &amp;ldquo;/auth/microsoft/redirect&amp;rdquo;.
+&lt;img src=&#34;microsoft-application-authentication-1.png&#34; alt=&#34;Microsoft application authentication&#34; title=&#34;Microsoft application authentication&#34;&gt;&lt;/p&gt;
+&lt;p&gt;On the &lt;em&gt;Secrets tab&lt;/em&gt; you find the Client secret that should be copied to the Butler Auth config file.
+&lt;img src=&#34;microsoft-application-secrets-1.png&#34; alt=&#34;Microsoft application secrets&#34; title=&#34;Microsoft application secrets&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Okta</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/okta/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/okta/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;okta&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Okta&amp;#34; provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userIdShort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;               &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# If true, the email domain will be removed. I.e. &amp;#34;joe.smith@domain.com&amp;#34; will be changed to &amp;#34;joe.smith&amp;#34;.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientId&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client ID&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientSecret&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Client secret&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;oktaDomain&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Okta domain from Google admin console&amp;gt; &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# E.q. https://myid-123456.okta.com&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;idp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userIdShort&lt;/td&gt;
+&lt;td&gt;The provider will return the user&amp;rsquo;s email address. If &lt;code&gt;userIdShort&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the @ character and email domain will be stripped from the email address returned by the provider. For example, &amp;ldquo;&lt;a href=&#34;mailto:joe@company.com&#34;&gt;joe@company.com&lt;/a&gt;&amp;rdquo; would become just &amp;ldquo;joe&amp;rdquo;. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientId&lt;/td&gt;
+&lt;td&gt;Client ID from Okta&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clientSecret&lt;/td&gt;
+&lt;td&gt;Client secret from Okta&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;oktaDomain&lt;/td&gt;
+&lt;td&gt;The URL you get from Okta. Usually something like &amp;ldquo;sometext.okta.com&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;idp&lt;/td&gt;
+&lt;td&gt;Can usually be left blank.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;okta-configuration&#34;&gt;Okta configuration&lt;/h2&gt;
+&lt;p&gt;These are the general steps to set up Okta for use with Butler Auth.&lt;br&gt;
+In the screen shots below Okta&amp;rsquo;s free tier is used - things might look different for you.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Sign into &lt;a href=&#34;https://www.okta.com/&#34;&gt;Okta&lt;/a&gt;. Go to the &lt;code&gt;Applications&lt;/code&gt; tab:
+&lt;img src=&#34;okta-apps-1.png&#34; alt=&#34;Okta applications&#34; title=&#34;Okta applications&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new &amp;ldquo;Web&amp;rdquo; application and give it a good name:
+&lt;img src=&#34;okta-app-new-web-1.png&#34; alt=&#34;Okta new web app&#34; title=&#34;Okta new web app&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Fill in &lt;code&gt;Name&lt;/code&gt;, &lt;code&gt;Base URIs&lt;/code&gt; (which is the Butler Auth URL) and &lt;code&gt;Login redirect URIs&lt;/code&gt; (which is Butler Auth&amp;rsquo;s Okta  callback URL). Review the other fields to make sure they match your use case. Click &lt;code&gt;Done&lt;/code&gt;.
+&lt;img src=&#34;okta-app-new-1.png&#34; alt=&#34;Okta new web app&#34; title=&#34;Okta new web app&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add users as needed.
+&lt;img src=&#34;okta-users-1.png&#34; alt=&#34;Okta users&#34; title=&#34;Okta users&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Single user</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/single-users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/single-users/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;butler-auth-configuration&#34;&gt;Butler Auth configuration&lt;/h2&gt;
+&lt;p&gt;The settings in the config file are:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;singleUser&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                         &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# &amp;#34;Single user&amp;#34; provider&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;lab             &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Sense user directory that will be used for the authenticated user&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;userId&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;goran                  &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# A user that already exists in Qlik Sense. All access to Sense will be done using this user.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Field&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;enable&lt;/td&gt;
+&lt;td&gt;Enable or disable this authentication provider. true/false.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userDirectory&lt;/td&gt;
+&lt;td&gt;The Qlik Sense Enterprise user directory that will be used once the user has been authenticated by the authentication provider.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userId&lt;/td&gt;
+&lt;td&gt;Qlik Sense user ID that all logins will use.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

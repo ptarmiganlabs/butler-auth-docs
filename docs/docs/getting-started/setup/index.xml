@@ -1,0 +1,66 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler Auth – Setup</title>
+    <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/</link>
+    <description>Recent content in Setup on Butler Auth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Which config file to use</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/which-config-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/which-config-file/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A description of the config file format is available &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;select-which-config-file-to-use&#34;&gt;Select which config file to use&lt;/h2&gt;
+&lt;p&gt;Butler Auth uses configuration files in &lt;a href=&#34;https://en.wikipedia.org/wiki/YAML&#34;&gt;YAML&lt;/a&gt; format. The config files are stored in the &lt;code&gt;src/config&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;Trying to run Butler Auth with the default config file (the one included in the files download from GitHub) will not work - you need to adapt it to your server environment.&lt;/p&gt;
+&lt;p&gt;The name of the config file matters. Butler Auth looks for an environment variable called &amp;ldquo;NODE_ENV&amp;rdquo; and then tries to load a config file named with the value found in NODE_ENV.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;NODE_ENV=production&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Butler will look for a config file &lt;code&gt;config/production.yaml&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;setting-environment-variables&#34;&gt;Setting environment variables&lt;/h3&gt;
+&lt;p&gt;The method for setting environment variables varies between different operating systems:&lt;/p&gt;
+&lt;p&gt;On Windows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set NODE_ENV=production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mac OS or Linux&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export NODE_ENV=production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth/blob/master/src/docker-compose.yaml&#34;&gt;sample docker-compose file&lt;/a&gt;.)&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Configuration</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

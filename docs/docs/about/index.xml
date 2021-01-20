@@ -1,0 +1,225 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler Auth – About</title>
+    <link>https://butler-auth.ptarmiganlabs.com/docs/about/</link>
+    <description>Recent content in About on Butler Auth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-auth.ptarmiganlabs.com/docs/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Butler Auth</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/about/butler-auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/about/butler-auth/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The goal of the Butler Auth project is to make it easy to add strong/flexible/custom authentication strategies to Qlik Sense Enterprise on Windows (QSEoW).&lt;/p&gt;
+&lt;p&gt;QSEoW has very good, built-in &lt;em&gt;&lt;strong&gt;access control&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;authorization&lt;/strong&gt;&lt;/em&gt;.&lt;br&gt;
+In practice this means that QSEoW enforces that users only can access resources they are allowed to access.&lt;/p&gt;
+&lt;p&gt;There is however no &lt;em&gt;&lt;strong&gt;authentication&lt;/strong&gt;&lt;/em&gt; what so ever in QSEoW.&lt;br&gt;
+This is quite reasonable - Qlik Sense is an analytics tool and should focus on this rather than the intricancies of ensuring that users are who they claim to be. That job is better left to those specializing in that particular field.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Butler Auth is the link between QSEoW and services that specialize in authentication and security.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;technology-stack&#34;&gt;Technology stack&lt;/h2&gt;
+&lt;p&gt;Butler Auth is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
+&lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
+&lt;p&gt;Butler Auth is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This picture might be useful to understand what Butle Auth does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler-auth.ptarmiganlabs.com/img/butler-auth-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler Auth high level system overview&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: The Butler family</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/about/butler-family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/about/butler-family/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler Auth is part of a group of tools that all aim to improve, simplify or extend various aspects of Qlik products.&lt;br&gt;
+Most tools focus on Qlik Sense Enterprise on Windows, but some have wider use within the Qlik ecosystem.&lt;/p&gt;
+&lt;p&gt;All members of the Butler family can be downloaded from Ptarmigan Labs&#39; &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;GitHub page&lt;/a&gt;.&lt;br&gt;
+Development of the Butler tools is sponsored by Ptarmigan Labs AB, which is an IT consultancy company in Stockholm, Sweden.&lt;/p&gt;
+&lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
+&lt;h3 id=&#34;butler-auth&#34;&gt;Butler Auth&lt;/h3&gt;
+&lt;p&gt;Makes it easier to add strong/flexible/custom authentication flows to Qlik Sense Enterprise on Windows.&lt;br&gt;
+Out of the box Butler Auth supports Google, Microsoft, Facebook, Okta, Auth0, LDAP and a few more authentication providers.&lt;/p&gt;
+&lt;p&gt;Butler Auth is designed to be extensible. It&amp;rsquo;s therefore relatively easy to add new authentication providers.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https:/butler-auth.ptarmiganlabs.com&#34;&gt;butler-auth.ptarmiganlabs.com&lt;/a&gt; (This site!)&lt;/p&gt;
+&lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
+&lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
+&lt;p&gt;Real-time operational metrics for Qlik Sense.&lt;br&gt;
+It simplifies day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) and is a must-have if you are responsible for a Sense environment with more than a dozen or so users.&lt;/p&gt;
+&lt;p&gt;Key features include&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Storing operational metrics to InfluxDB, for later viewing in Grafana dashboards.&lt;/li&gt;
+&lt;li&gt;Extract warnings and errors from Sense. Makes it much easier to detect (and act!) on issues as they happen, rather than in retrospect much later.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
+&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into the Sense server&amp;rsquo;s memory, so they are readily available when users open them.&lt;/p&gt;
+&lt;p&gt;Once again - if your Sense environment serve more than a dozen users, you should consider a cache warming tool.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
+&lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lowered barrier of entry for new Sense developers.&lt;/li&gt;
+&lt;li&gt;Productivity boost when developing Sense apps.&lt;/li&gt;
+&lt;li&gt;Encouraging a common coding style and standard across all apps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;github.com/ptarmiganlabs/butler-app-duplicator&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-spyglass&#34;&gt;Butler Spyglass&lt;/h3&gt;
+&lt;p&gt;This tool is mainly of interest if you have lots of QVDs and apps, but when that&amp;rsquo;s the case it&amp;rsquo;s of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.&lt;/p&gt;
+&lt;p&gt;Butler Spyglass also extracts full load scripts for all Sense apps, creating a historical record of all load scripts for all Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-spyglass&#34;&gt;github.com/ptarmiganlabs/butler-spyglass&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-notifier&#34;&gt;Butler Notifier&lt;/h3&gt;
+&lt;p&gt;This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-notifier&#34;&gt;github.com/ptarmiganlabs/butler-notifier&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-icon-uploader&#34;&gt;Butler Icon Uploader&lt;/h3&gt;
+&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
+The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.&lt;br&gt;
+With such icons available, Sense app developers can then use professional quality sheet and app icons in their Sense apps.ß&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-icon-upload&#34;&gt;github.com/ptarmiganlabs/butler-icon-upload&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Use cases</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/about/use-cases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/about/use-cases/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Disclaimer&lt;/h4&gt;
+
+    &lt;p&gt;All your use of Qlik Sense Enterprise on Windows is subject to the licensing and other terms you have received from Qlik.&lt;br&gt;
+These may in theory differ between Qlik&amp;rsquo;s customers and also change over time.&lt;/p&gt;
+&lt;p&gt;You are yourself responsible for complying with terms.&lt;/p&gt;
+&lt;p&gt;If Butler Auth offers or enables features that do not align with the licesning terms you have received from Qlik, it is still &lt;em&gt;your&lt;/em&gt; responsibility to comply with Qlik&amp;rsquo;s terms and conditions.&lt;/p&gt;
+&lt;p&gt;None of the companies and/or individuals that have at some point contributed to Butler Auth, should at any time, in any way, be held liable for how you use Butler Auth.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;log-into-qseow-using-one-of-the-major-cloud-providers-directory-service&#34;&gt;Log into QSEoW using one of the major cloud providers&#39; directory service&lt;/h3&gt;
+&lt;p&gt;If you already use Microsoft Azure, Google, Okta or Auth0 as identify provider, you probably want to do the same also for Qlik Sense.&lt;/p&gt;
+&lt;h3 id=&#34;log-into-qseow-using-ldap-for-as-both-user-and-credentials&#34;&gt;Log into QSEoW using LDAP for as both user and credentials&lt;/h3&gt;
+&lt;p&gt;A very common setup (possibly &lt;em&gt;the&lt;/em&gt; most common) is to use Active Directory for storing user info and credentials, and then talk to AD using the LDAP protocol.&lt;/p&gt;
+&lt;p&gt;QSEoW natively supports syncing &lt;em&gt;user names&lt;/em&gt; from some service using LDAP, this does not include passwords though.&lt;br&gt;
+This is actually not authentication at all, it&amp;rsquo;s just a way to sync user names and attributes from a directory service to QSEoW, using the LDAP protocol.&lt;/p&gt;
+&lt;p&gt;LDAP can however also be used to &lt;em&gt;authenticate&lt;/em&gt; users, and Butler Auth supports this.&lt;/p&gt;
+&lt;p&gt;One use case is thus to get both the Qlik Sense user directory info (i.e. user names and attributes) &lt;em&gt;and&lt;/em&gt; authenticate users via LDAP.&lt;/p&gt;
+&lt;h3 id=&#34;authenticate-against-keycloak-for-a-fully-open-source-setup&#34;&gt;Authenticate against Keycloak for a fully open source setup&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.keycloak.org/&#34;&gt;Keycloak&lt;/a&gt; is a very powerful, open source identity provider.&lt;/p&gt;
+&lt;p&gt;In situations where open source solutions are preferred or mandated the combination of Keycloak and Butler Auth provides a 100% open source authentication solution for QSEoW.&lt;/p&gt;
+&lt;h3 id=&#34;increaseed-redundancy-by-offering-sign-in-via-multiple-channels&#34;&gt;Increaseed redundancy by offering sign-in via multiple channels&lt;/h3&gt;
+&lt;p&gt;If you have multiple authentication solutions Butler Auth can be used to support several (or all) of them.&lt;/p&gt;
+&lt;p&gt;For example, let&amp;rsquo;s assume Okta is the primary authentication provider in your company but you also use Google&amp;rsquo;s tools (GMail, Sheets, Docs etc).&lt;/p&gt;
+&lt;p&gt;Butler Auth can then be configured for both Okta and Google authentication, with the effect that users can use either service when logging into Sense.&lt;/p&gt;
+&lt;h3 id=&#34;use-a-single-user-account-for-all-access-to-qseow&#34;&gt;Use a single user account for all access to QSEoW&lt;/h3&gt;
+&lt;p&gt;Sometimes you want all access to Qlik Sense to happen via a specific user account.&lt;/p&gt;
+&lt;p&gt;Admittedly, this might not be a very common scenario. But consider a trade show or other event where people should be able to test some Qlik Sense based application - ideally without having to log in at all.&lt;/p&gt;
+&lt;p&gt;You could solve this by using a Qlik Sense license that allows for anonymous users - but that&amp;rsquo;s probably overkill if the purpose is a simple demo event.&lt;/p&gt;
+&lt;p&gt;Another option is to use Butler Auth to force all access to Sense to use a single Sense account.&lt;br&gt;
+Given Sense&amp;rsquo;s limits on number of simultaneous sessions, only a handful (or less) people can try that Sense app at once - but it might be good enough for this specific use case.&lt;/p&gt;
+&lt;p&gt;Another use case would be to show a dashboard on a set of monitors in the office.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;January 2021 note: Given how rarely people are in offices nowadays and the non-existing nature of trade shows, the use cases above might be pretty theoretical during coming months/years&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Versions</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/about/versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/about/versioning/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;In the spirit of not copying information to several places, the version history is kept as annotations of each release on the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth/releases&#34;&gt;GitHub release page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Version numbers include up to 3 levels, for example version 4.6.2 (which is a fictitious version):&lt;/p&gt;
+&lt;p&gt;4 is the &lt;strong&gt;major&lt;/strong&gt; version. It is increased when Butler Auth has added major new features, or in other ways changed in major ways. If following this principle, breaking changes should always result in a bumped major version.&lt;/p&gt;
+&lt;p&gt;6 is the &lt;strong&gt;minor&lt;/strong&gt; version. This indicates a smaller update, when one or a few minor features have been added.&lt;/p&gt;
+&lt;p&gt;2 is the &lt;strong&gt;patch&lt;/strong&gt; level. When individual bugs are fixed, these are released with an increased patch level.&lt;/p&gt;
+&lt;p&gt;Note 1: Major and minor updates usually include bug fixes too.&lt;br&gt;
+Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Contribution guidelines</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/about/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/about/contributing/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Butler Auth is an open source project, using the &lt;a href=&#34;https://choosealicense.com/licenses/mit/&#34;&gt;MIT license&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This means that all source code, documentation etc is available as-is, at no cost.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It however also means that anyone interested can - and is encouraged to - contribute to the project!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Butler Auth is developed in &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;, with support from various &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt; modules.&lt;br&gt;
+Specifically, most authentication providers are implemented using &lt;a href=&#34;http://www.passportjs.org/&#34;&gt;Passport.js&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We use &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; to format and generate this documentation site and the &lt;a href=&#34;https://github.com/google/docsy&#34;&gt;Docsy&lt;/a&gt; theme for styling and site structure.&lt;br&gt;
+Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.&lt;/p&gt;
+&lt;p&gt;All submissions, including submissions by project members, require review.&lt;br&gt;
+We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Security/Disclosure&lt;/h4&gt;
+
+    If you discover a serious bug with Butler Auth that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;discussions&#34;&gt;Discussions&lt;/h2&gt;
+&lt;p&gt;We use &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth/discussions/1&#34;&gt;GitHub&amp;rsquo;s discussion boards&lt;/a&gt; to discuss ideas, features, issues and everything else relating to Butler Auth.&lt;/p&gt;
+&lt;h2 id=&#34;contributing-to-butler-auth-and-this-documentation-site&#34;&gt;Contributing to Butler Auth and this documentation site&lt;/h2&gt;
+&lt;p&gt;Butler Auth itself lives in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth&#34;&gt;https://github.com/ptarmiganlabs/butler-auth&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The doc site lives in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth-docs&#34;&gt;https://github.com/ptarmiganlabs/butler-auth-docs&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;code-reviews&#34;&gt;Code reviews&lt;/h3&gt;
+&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://help.github.com/articles/about-pull-requests/&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
+&lt;h3 id=&#34;test-your-changes&#34;&gt;Test your changes&lt;/h3&gt;
+&lt;p&gt;As obvious as it might sound: Please test your proposed changes properly before submitting pull requests.&lt;/p&gt;
+&lt;h3 id=&#34;creating-an-issue&#34;&gt;Creating an issue&lt;/h3&gt;
+&lt;p&gt;If you&amp;rsquo;ve found a problem - or have a feature suggestion - with Butler Auth or this documentation site, but you&amp;rsquo;re not sure how to fix it yourself, please create an issue in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth/issues/new&#34;&gt;Butler Auth&lt;/a&gt; or &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth-docs/issues/new&#34;&gt;Butler Auth docs&lt;/a&gt; repos. You can also create an issue about a specific doc page by clicking the &lt;strong&gt;Create project issue&lt;/strong&gt; button in the top right hand corner of the page.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

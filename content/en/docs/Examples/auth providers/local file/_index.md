@@ -28,8 +28,8 @@ localFile:                          # "Local file" provider reads user data from
 
 If you want to use the built-in login page to begin with, it's configured like this:
 
-1. Let's assume Butler Auth is hosted at https://butlerauth.company.com, with the http server set up to listen on port 8081.  
-The demo web UI showing all the authentication providers is then available at https://butlerauth.company.com:8081/auth-providers.html.
+1. Let's assume Butler Auth is hosted at `https://butlerauth.company.com`, with the http server set up to listen on port 8081.  
+The demo web UI showing all the authentication providers is then available at `https://butlerauth.company.com:8081/auth-providers.html`.
 2. In order to use the demo login page you should set the `ButlerAuth.authProvider.localFile.url` to `https://butlerauth.company.com:8081`
 
 Here is the built-in local file login page:

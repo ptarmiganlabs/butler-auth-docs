@@ -1,0 +1,270 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler Auth – Installing Butler Auth</title>
+    <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/</link>
+    <description>Recent content in Installing Butler Auth on Butler Auth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Choose a platform</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</guid>
+      <description>
+        
+        
+        &lt;p&gt;If you have access to or can set up a &lt;strong&gt;Docker&lt;/strong&gt; runtime environment, this is by far the preferred way of running Butler Auth.&lt;/p&gt;
+&lt;p&gt;Installation is less error prone compared to installing Butler Auth as a &lt;strong&gt;Node.js app&lt;/strong&gt;, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler Auth ersions become trivial.&lt;/p&gt;
+&lt;p&gt;If you have access to a &lt;strong&gt;Kubernetes&lt;/strong&gt; cluster, that is usually an even better option than Docker. Kubernetes can be daunting when first approached, but will give you superb reliability, failover and restarts if a server goes down or becomes unresponsive etc.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://k3s.io/&#34;&gt;Rancher&amp;rsquo;s K3s&lt;/a&gt; is a great way to get started with Kubnernetes. Fully featured, well supported and a vibrant developer community.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Installing Butler Auth in a Docker container</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/docker/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Prerequisites for running Butler Auth in Docker:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler Auth is developed with Qlik Sense Enterprise on Windows in mind.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Docker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Docker runtime environment on any supported platform. This means you can run Butler Auth on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. Kubernetes is also a great option for running Butler Auth!&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;p&gt;The following steps give some guidance on how to get Butler Auth running on Docker.&lt;br&gt;
+Here Mac OS has been used, things will look different on Linux and Windows.&lt;/p&gt;
+&lt;!-- TODO: update Docker install instructions --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ mkdir /Users/goran/butler-auth
+➜  ~ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler-auth
+➜  butler-auth mkdir -p config/certificate
+➜  butler-auth mkdir sessions
+➜  butler-auth mkdir log
+➜  butler-auth wget https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
+--2021-01-19 07:07:23--  https://raw.githubusercontent.com/ptarmiganlabs/butler-auth/master/src/docker-compose.yaml
+Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 151.101.0.133, 151.101.192.133, 151.101.128.133, ...
+Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;151.101.0.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
+HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;404&lt;/span&gt; Not Found
+2021-01-19 07:07:24 ERROR 404: Not Found.
+➜  butler-auth
+➜  butler-auth cat docker-compose.yaml
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
+version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
+services:
+  butler-auth:
+    image: ptarmiganlabs/butler-auth:1.0.0
+    container_name: butler-auth
+    restart: always
+    ports:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8081:8081&amp;#34;&lt;/span&gt;       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# http/web server used to serve sample login forms included in Butler Auth&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8761:8761&amp;#34;&lt;/span&gt;       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API called by Qlik Sense Enterprise when users should be authenticated&lt;/span&gt;
+    volumes:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file and logs accessible outside of container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./log:/nodeapp/log&amp;#34;&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./sessions:/nodeapp/sessions&amp;#34;&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/path/to/tls/cert:/nodeapp/config/tls&amp;#34;&lt;/span&gt;
+    environment:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;
+    logging:
+      driver: json-file
+      options:
+        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
+➜  butler-auth
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point you should&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, with or without passwords on the certificates. If a password is used it must also be specified in Butler Auth&amp;rsquo;s config file.&lt;/li&gt;
+&lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
+&lt;li&gt;Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler Auth features you want enabled.&lt;br&gt;
+Rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
+You can actually name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yaml&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;If using the &lt;code&gt;local-file&lt;/code&gt; auth provider, you also need a corresponding YAML file where user info is stored. There is a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth/blob/master/src/config/users.yaml&#34;&gt;template file&lt;/a&gt; in the GitHub repository.&lt;/li&gt;
+&lt;li&gt;If using TLS to secure Butler Auth (you should!), the volumes entry &lt;code&gt;/path/to/tls/cert:/nodeapp/config/tls&lt;/code&gt; in &lt;code&gt;docker-compose.yaml&lt;/code&gt; must point to your TLS certificates.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When done, you should see something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  butler-auth tree
+.
+├── config
+│   ├── certificate
+│   │   ├── client.pem
+│   │   ├── client_key.pem
+│   │   └── root.pem
+│   ├── production.yaml
+│   └── users.yaml
+├── docker-compose.yaml
+├── log
+└── sessions
+
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; directories, &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; files
+➜  butler-auth
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point everything is ready and you can start the Butler Auth container using docker-compose (IP addresses and URLs have been slightly scrambled below):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  butler-auth docker-compose up
+Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler-auth_default&amp;#34;&lt;/span&gt; with the default driver
+Pulling butler-auth &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;ptarmiganlabs/butler-auth:1.0.0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+1.0.0: Pulling from ptarmiganlabs/butler-auth
+22f9b9782fc3: Already exists
+072739d44e4f: Already exists
+5111f27e9600: Already exists
+dc22afea6082: Already exists
+0ad0b403cda0: Already exists
+bca65cadbc25: Already exists
+c1e57ccc1a03: Already exists
+2571476d0e73: Already exists
+e3719000bb2c: Already exists
+d09cb7e3b7d4: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+76d111860f8b: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+c30b9b6a8b26: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+e75f642798c7: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+5b06a9fb8f94: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:545e81b4a638cb2f50b7718723cd60528e91a237349429279a90928c95fa420f
+Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ptarmiganlabs/butler-auth:1.0.0
+Creating butler-auth ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Attaching to butler-auth
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.070Z info: CONFIG: Influxdb enabled: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.075Z info: CONFIG: Influxdb host IP: 1.2.3.4
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.075Z info: CONFIG: Influxdb host port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8086&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.076Z info: CONFIG: Influxdb db name: butlerauth
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.413Z info: AUTH-LOCALFILE: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.415Z info: AUTH-LOCALFILE: Loading user list.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.419Z info: AUTH-LOCALFILE: Successfully loaded users from file.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.420Z debug: AUTH-LOCALFILE: Users loaded from file: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;anna&amp;#34;&lt;/span&gt;,
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fullName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Anna Svenson&amp;#34;&lt;/span&gt;,
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;aaa&amp;#34;&lt;/span&gt;,
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;comment&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Root admin user&amp;#34;&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;joe&amp;#34;&lt;/span&gt;,
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fullName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Joe Jonson&amp;#34;&lt;/span&gt;,
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bbb&amp;#34;&lt;/span&gt;,
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;comment&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Regular user&amp;#34;&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.421Z info: AUTH-LDAP: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.421Z info: AUTH-GOOGLEOAUTH: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.422Z info: AUTH-FACEBOOK: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.423Z info: AUTH-MICROSOFT: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.424Z info: AUTH-OKTA: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.425Z info: AUTH-KEYCLOAK: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.425Z info: AUTH-AUTH0: Setting up endpoints.
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.426Z debug: HEARTBEAT: Setting up heartbeat to remote: http://healthcheck.mycompany.com/ping/12345678-1234-1234-1234-b10b81583522
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.428Z info: --------------------------------------
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.428Z info: Starting Butler authenticator
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.428Z info: Log level: debug
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.428Z info: App version: 1.0.0
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.428Z info: --------------------------------------
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.458Z info: MAIN: REST server now listening on butler-auth:8761
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.459Z info: MAIN: Web server now listening on butler-auth:8081
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.478Z info: CONFIG: Found InfluxDB database: butlerauth
+butler-auth    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-01-19T06:22:18.597Z debug: HEARTBEAT: Sent heartbeat to http://healthcheck.mycompany.com/ping/12345678-1234-1234-1234-b10b81583522
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler Auth version you are using and what features are enabled.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler Auth as a native Node.js application</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/nodejs/</guid>
+      <description>
+        
+        
+        &lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler Auth runs on any OS where Node.js is available.&lt;br&gt;
+Butler Auth has been succesfully used using standard Node.js - during development and production - on Windows, Linux (Debian and Ubuntu tested) and Mac OS.&lt;/p&gt;
+&lt;h2 id=&#34;running-as-nodejs-app&#34;&gt;Running as Node.js app&lt;/h2&gt;
+&lt;p&gt;Prerequisites:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Sense Enterprise&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler Auth is developed with Qlik Sense Enterprise on Windows in mind.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler Auth&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
+Butler Auth was developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version of Node.js is a good choice for running Butler. At time of this writing, Node.js 14.5 is used.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Decide where to install Butler Auth&lt;/strong&gt;&lt;br&gt;
+It is usually a good starting point to run Butler Auth on a Sense server.&lt;/p&gt;
+&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler Auth on some other server. A small &amp;ldquo;utility&amp;rdquo; or &amp;ldquo;misc&amp;rdquo; server can often be useful for running various add-on services to Qlik Sense.&lt;/p&gt;
+&lt;p&gt;The bottom line is that Butler Auth can run on any server, as long as Node.js is available and there is network connectivity to the actual Qlik Sense server(s).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download Butler Auth&lt;/strong&gt;&lt;br&gt;
+Download the repository zip from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-auth/releases&#34;&gt;releases page&lt;/a&gt; file or clone the Butler Auth repository using your git tool of choice. Both options achieve the same thing, i.e. a directory such as d:\node\butler-auth, which is then Butler Auth&amp;rsquo;s root directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node dependencies&lt;/strong&gt;&lt;br&gt;
+From a Windows command prompt (assuming the Butler ZIP file/repository was extracted to d:\node\butler-auth):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d:
+cd \node\butler-auth\src
+npm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will download and install the Node.js modules used by Butler Auth.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Configuration&lt;/strong&gt;&lt;br&gt;
+Configuration of Butler Auth is done more or less the same way as &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/docker/#installation-steps&#34;&gt;configuring for Docker&lt;/a&gt;, i.e. get certificates from Qlik Sense Enterprise on Windows &amp;gt; store them in suitable location &amp;gt; refer to those cert files from &lt;code&gt;production.yaml&lt;/code&gt; file etc.&lt;br&gt;
+More details are then available in the on the &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file&#34;&gt;Configuration pages&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

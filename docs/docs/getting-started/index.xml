@@ -1,0 +1,179 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler Auth – Getting started</title>
+    <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/</link>
+    <description>Recent content in Getting started on Butler Auth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-auth.ptarmiganlabs.com/docs/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Choosing an authentication solution</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/choosing-auth-solution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/choosing-auth-solution/</guid>
+      <description>
+        
+        
+        &lt;p&gt;There aren&amp;rsquo;t really any right or wrong here.&lt;br&gt;
+What&amp;rsquo;s right for your company might be unacceptable for another company, and vice versa.&lt;/p&gt;
+&lt;p&gt;This page is intended to make you think and consider the options you have.&lt;/p&gt;
+&lt;h2 id=&#34;commercial-service-or-open-source&#34;&gt;Commercial service or open source?&lt;/h2&gt;
+&lt;p&gt;The authentication providers supported by Butler Auth generally belong to either of two categories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Commercial identify and authentication providers such as Okta and Auth0.&lt;br&gt;
+These companies have entire teams dedicated to creating secure solutions for their customers.
+But the transparency is non-existing. They will for sure use open standards like OAuth 2.0, OpenID etc - but you will never know exactly what the implementations look like.&lt;br&gt;
+In other words: You will never be able to audit the code responsible for your authentication flow - you have to trust that these companies know what they are doing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open source libraries provide full transparency. You can audit them if/when needed.&lt;br&gt;
+The downside is that these libraries are sometimes developed by individuals or companies that no longer actively maintain them. Which in worst case &lt;em&gt;could&lt;/em&gt; mean that new security issues are discovered in the standard authentication protocol, but the open source libraries are not quickly updated - or not updated at all.
+While this is rare, it&amp;rsquo;s a real possibility.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;passportjs&#34;&gt;Passport.js&lt;/h2&gt;
+&lt;p&gt;Butler Auth relies heavily on the &lt;a href=&#34;http://www.passportjs.org/packages/&#34;&gt;authentication strategies&lt;/a&gt; available via &lt;a href=&#34;http://www.passportjs.org/&#34;&gt;Passport.js&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This is an open source authentication library boasting 500+ various kinds of authentication variants.&lt;/p&gt;
+&lt;p&gt;Now, there will be duplicates (several strategies all offering Google authentication) and most of those strategies will be rather obscure - with the associated risk of not being supported.&lt;br&gt;
+The big ones - Google, Microsoft, generic OAuth 2.0, Auth0, LDAP, OpenID etc - are generall well supported and kept up to date.&lt;br&gt;
+For that reason they are also used in Butler Auth.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note!&lt;/h4&gt;
+
+    &lt;p&gt;If you do not trust the various authentication modules that are part of Passport.js, you should not use them via Butler Auth.&lt;/p&gt;
+&lt;p&gt;Butler Auth is simply a thin wrapper around those modules.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;recommendation&#34;&gt;Recommendation&lt;/h2&gt;
+&lt;p&gt;So how should you reason if you have the luxury of deciding yourself what authentication solution to use?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;If low cost is the main focus you should go with the big, established service providers. Google, Microsoft, GitHub, Amazon etc. By using open source authentication modules you won&amp;rsquo;t have any cost for the software or service.&lt;br&gt;
+These are reasonably easy to set up and get working.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you have high security requirements and prefer (or must use) open source, Keycloak is a good option.&lt;/p&gt;
+&lt;p&gt;Keycloak can however be challenging to set up properly, at least if you also want to lock it down to meet specific security requirements. It&amp;rsquo;s like a Swiss army knife of authentication, with many, many tools in it&amp;hellip;&lt;br&gt;
+There is simply a risk of configuring it incorrectly and not achieve the desired security level as a result.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you can accept some costs associated with authentication you could use one of the commercial services.
+With some of them you can still use Google/Microsoft/&amp;hellip; authentication if so desired, but you offload that integration work to the service provider.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Installing Butler Auth</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/install/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Given the cross platform nature of Node.js (which is the language Butler Auth is written in), Butler Auth can run on lots of different hardware platforms and operating systems.&lt;/p&gt;
+&lt;p&gt;It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries to explain how to get started with Butler Auth in some of the most common scenarios.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Sorry - there is no installer for Butler Auth.&lt;br&gt;
+You will need to work a bit on the command line to set things up.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not as bad as it sounds though, the instructions here should help you to get started.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Either you install a few pieces of software (most notably &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and some node modules), or you run Butler Auth in a Docker container.&lt;/p&gt;
+&lt;p&gt;Either way you also need to edit Butler Auth&amp;rsquo;s configuration file and provide certificates exported from Qlik Sense Enterprise.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Setup</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Day 2 operations</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/getting-started/operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/getting-started/operations/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;running-butler-auth&#34;&gt;Running Butler Auth&lt;/h2&gt;
+&lt;p&gt;How to start and keep Butler Auth running varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
+&lt;h3 id=&#34;running-as-a-docker-container&#34;&gt;Running as a Docker container&lt;/h3&gt;
+&lt;p&gt;Starting Butler Auth is easy.&lt;br&gt;
+First configure the &lt;code&gt;docker-compose.yml&lt;/code&gt; file as needed, then start the Docker container in interactive mode (with output sent to the screen). This is useful to ensure everything works as intended when first setting up Butler Auth.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once everything works as intended, hit &lt;code&gt;ctrl-c&lt;/code&gt; to stop the service.&lt;br&gt;
+Then start it again in deameon (background) mode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.&lt;/p&gt;
+&lt;h3 id=&#34;running-as-native-nodejs-app&#34;&gt;Running as native Node.js app&lt;/h3&gt;
+&lt;p&gt;Starting Butler Auth as a Node.js task is easy too:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d:
+cd \node\butler-auth\src
+node index.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
+&lt;h4 id=&#34;windows-services--process-monitors&#34;&gt;Windows services &amp;amp; process monitors&lt;/h4&gt;
+&lt;p&gt;As Butler Auth is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running as a Docker container you get this for free).&lt;/p&gt;
+&lt;p&gt;On Windows you can use the excellent &lt;a href=&#34;https://nssm.cc/&#34;&gt;Nssm&lt;/a&gt; tool to make Butler Auth run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).&lt;/p&gt;
+&lt;p&gt;If running Butler Auth as a Node.js app on Linux, &lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;PM2&lt;/a&gt; and &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;Forever&lt;/a&gt; are two good process monitors.&lt;/p&gt;
+&lt;h3 id=&#34;monitoring-butler-auth&#34;&gt;Monitoring Butler Auth&lt;/h3&gt;
+&lt;p&gt;Once Butler Auth is running it&amp;rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if it for some reason misbehaves.&lt;/p&gt;
+&lt;p&gt;Butler Auth will log data on its memory usage to InfluxDB if&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The config file&amp;rsquo;s &lt;code&gt;ButlerAuth.uptimeMonitor.enable&lt;/code&gt; and &lt;code&gt;ButlerAuth.uptimeMonitor.storeInInfluxdb.enable&lt;/code&gt; properties are both set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The remaining InfluxDB properties of the config file are correctly configured.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler Auth&amp;rsquo;s memory use over time.&lt;br&gt;
+You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.&lt;/p&gt;
+&lt;p&gt;The following metrics are logged to InfluxDB, in a measurement called &lt;code&gt;butlerauth_memory_usage&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;heap_used&lt;/li&gt;
+&lt;li&gt;heap_total&lt;/li&gt;
+&lt;li&gt;external&lt;/li&gt;
+&lt;li&gt;process_memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each measurement is also tagged with a tag called &lt;code&gt;butlerauth_instance&lt;/code&gt;. This tag is set in the main config file and is used in complex environments to separate between different Butler Auth instances.&lt;/p&gt;
+&lt;p&gt;A Grafana dashboard can look like this. Note that one of the available metrics (&lt;code&gt;external&lt;/code&gt;) is not used in this particular dashboard. It&amp;rsquo;s still logged to InfluxDB though.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butler-memory-usage-grafana-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler memory usage in Grafana dashboard&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There is a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana&#34;&gt;sample Grafana dashboard&lt;/a&gt; in Butler&amp;rsquo;s GitHub repo.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

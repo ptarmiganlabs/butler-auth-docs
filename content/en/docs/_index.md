@@ -23,6 +23,6 @@ This first version of Butler Auth includes support for these authentication prov
 * Local file
 * Single user
 
-Docker containers are available on [Docker Hub](https://dockerlskdjflskjf) for both Intel and ARM architectures.
+Docker containers are available on [Docker Hub](https://hub.docker.com/r/ptarmiganlabs/butler-auth) for both Intel and ARM architectures.
 
 {{% /pageinfo %}}

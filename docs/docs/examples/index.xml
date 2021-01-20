@@ -1,0 +1,104 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler Auth – Examples</title>
+    <link>https://butler-auth.ptarmiganlabs.com/docs/examples/</link>
+    <description>Recent content in Examples on Butler Auth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler-auth.ptarmiganlabs.com/docs/examples/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Auth providers</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/auth-providers/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;demo-web-page&#34;&gt;Demo web page&lt;/h2&gt;
+&lt;p&gt;Butler Auth includes a small demo web site that makes it easy to try the various authentication providers (assuming you have accounts with them, of course).&lt;/p&gt;
+&lt;p&gt;The site is just a single page with links to each authentication provider supported by Butler Auth:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butlerauth-auth-providers-demopage.png&#34; alt=&#34;Demo UI for all authentication providers&#34; title=&#34;Demo UI for all authentication providers&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br&gt;
+The demo site has hard coded links to a specific Qlik Sense Enterprise on Windows server.&lt;br&gt;
+This means you can view the demo site above, but when clicking the links you won&amp;rsquo;t be able to connect to the Sense server.&lt;/p&gt;
+&lt;p&gt;Instructions for customising the demo site are available &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/examples/custom-demo-site&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Customizing the demo site</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/custom-demo-site/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/custom-demo-site/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;butler-auth-demo-site&#34;&gt;Butler Auth demo site&lt;/h2&gt;
+&lt;p&gt;A single web page provides an easy way to try out the different auth providers:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butlerauth-auth-providers-demopage.png&#34; alt=&#34;Demo UI for all authentication providers&#34; title=&#34;Demo UI for all authentication providers&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-demo-site---how-does-it-work&#34;&gt;The demo site - how does it work?&lt;/h2&gt;
+&lt;p&gt;Each auth provider included on the demo site has a link that takes the user to Qlik Sense.
+For example, clicking the Google icon the user will be sent to &lt;code&gt;https://senseprod.ptarmiganlabs.net/ba-google&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;senseprod.ptarmiganlabs.net is a Qlik Sense Enterprise on Windows server, with a virtual proxy called &lt;code&gt;ba-google&lt;/code&gt; (hint: ba=butlerauth).&lt;/p&gt;
+&lt;p&gt;That virtual proxy has the usual settings plus a link to a &amp;ldquo;authentication module&amp;rdquo; that should be used.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butlerauth-virtualproxy-google.png&#34; alt=&#34;Virtual proxy using Butler Auth for Google authentication&#34; title=&#34;Virtual proxy using Butler Auth for Google authentication&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The authentication module is - surprise - part of Butler Auth. More specifically the REST API of Butler Auth has an endpoint named &lt;code&gt;/auth/google&lt;/code&gt;.&lt;br&gt;
+With Butler Auth&amp;rsquo;s REST API being hosted at &lt;code&gt;https://qliksenseauth.ptarmiganlabs.net:8761&lt;/code&gt; (this is all set in the main config file), the full URL for the virtual proxy&amp;rsquo;s authentication module is &lt;code&gt;https://qliksenseauth.ptarmiganlabs.net:8761/auth/google&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;customizing-the-demo-site&#34;&gt;Customizing the demo site&lt;/h2&gt;
+&lt;p&gt;The list below should be a good starting point if you want to customize the demo site to your own server/network/Qlik Sense environment.&lt;/p&gt;
+&lt;h3 id=&#34;configure-http-server&#34;&gt;Configure http server&lt;/h3&gt;
+&lt;p&gt;Butler Auth&amp;rsquo;s build in web server is always enabled, but must be configured.&lt;br&gt;
+Given the config below the web server will be running at &lt;code&gt;https://qliksenseauth.ptarmiganlabs.net:8081&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;https is enabled using the specified certificate/key. In this case the certificate is not password protected (the password field is empty).&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;ButlerAuth&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;web&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                        &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# The web/http server used to serve the sample login pages included in Butler Auth&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksenseauth.ptarmiganlabs.net  &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Hostname of the http server. Would be container name when running under Docker. &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8081&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;              &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Port where the http server will listen&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tls&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Used to secure the http server with TLS. I.e. https.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;cert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/path/to/cert/cert.cer&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;key&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/path/to/cert.key&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;password&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;create-qlik-sense-virtual-proxies&#34;&gt;Create Qlik Sense virtual proxies&lt;/h3&gt;
+&lt;p&gt;You can have many virtual proxies in Qlik Sense, even if you have just a single Sense server.&lt;br&gt;
+Each virtual proxy implements exactly one authentication method, or uses anonymous access to Sense.&lt;/p&gt;
+&lt;p&gt;If you want to try all the auth providers offered by Butler Auth, you need to create one virtual proxy for each provider:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;qliksense-virtualproxies.png&#34; alt=&#34;Qlik Sense virtual proxies used together with Butler Auth&#34; title=&#34;Qlik Sense virtual proxies used together with Butler Auth&#34;&gt;&lt;/p&gt;
+&lt;p&gt;An example of a virtual proxy configuration for Google authentication is found up above on this page.&lt;/p&gt;
+&lt;h3 id=&#34;modify-demo-site&#34;&gt;Modify demo site&lt;/h3&gt;
+&lt;p&gt;The demo site is included in the GitHub repository and in the image on Docker Hub. It&amp;rsquo;s located at &lt;code&gt;/src/html&lt;/code&gt; in the GitHub repository.&lt;/p&gt;
+&lt;p&gt;The html pages are reasonably basic, but a general understanding of html, css and Javascript is needed to understand how they work.&lt;/p&gt;
+&lt;p&gt;The pages only use paths relative to the http server&amp;rsquo;s base URL, meaning that the pages &lt;em&gt;should&lt;/em&gt; work in your Sense environment without any changes. You might want to change look-and-feel etc though - feel free to use the provided pages as inspiration!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Observable</title>
+      <link>https://butler-auth.ptarmiganlabs.com/docs/examples/obeservable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler-auth.ptarmiganlabs.com/docs/examples/obeservable/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;healthcheck-pings&#34;&gt;Healthcheck pings&lt;/h2&gt;
+&lt;h2 id=&#34;uptime-monitor-with-metrics-in-influxdb&#34;&gt;Uptime monitor with metrics in InfluxDB&lt;/h2&gt;
+&lt;h2 id=&#34;docker-heatlcheck&#34;&gt;Docker heatlcheck&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
