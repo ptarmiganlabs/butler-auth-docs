@@ -19,18 +19,18 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Observable | Butler Auth</title><meta property="og:title" content="Observable" />
-<meta property="og:description" content="Monitoring Butler Auth, making sure it&#39;s alive and well
+<title>Butler Auth is observable | Butler Auth</title><meta property="og:title" content="Butler Auth is observable" />
+<meta property="og:description" content="Monitoring Butler Auth, making sure it&#39;s alive and well. 
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://butler-auth.ptarmiganlabs.com/docs/examples/obeservable/" />
 <meta property="og:site_name" content="Butler Auth" />
-<meta itemprop="name" content="Observable">
-<meta itemprop="description" content="Monitoring Butler Auth, making sure it&#39;s alive and well
+<meta itemprop="name" content="Butler Auth is observable">
+<meta itemprop="description" content="Monitoring Butler Auth, making sure it&#39;s alive and well. 
 ">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Observable"/>
-<meta name="twitter:description" content="Monitoring Butler Auth, making sure it&#39;s alive and well
+<meta name="twitter:title" content="Butler Auth is observable"/>
+<meta name="twitter:description" content="Monitoring Butler Auth, making sure it&#39;s alive and well. 
 "/>
 
 
@@ -1008,7 +1008,7 @@ if (!doNotTrack) {
 
     <a href="https://github.com/ptarmiganlabs/butler-auth-docs/edit/master/content/en/docs/examples/obeservable/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
     <a href="https://github.com/ptarmiganlabs/butler-auth-docs/new/master/content/en/docs/examples/obeservable/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/ptarmiganlabs/butler-auth-docs/issues/new?title=Observable" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/ptarmiganlabs/butler-auth-docs/issues/new?title=Butler%20Auth%20is%20observable" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/ptarmiganlabs/butler-auth/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -1026,9 +1026,9 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#healthcheck-pings">Healthcheck pings</a></li>
+    <li><a href="#heartbeats">Heartbeats</a></li>
     <li><a href="#uptime-monitor-with-metrics-in-influxdb">Uptime monitor with metrics in InfluxDB</a></li>
-    <li><a href="#docker-heatlcheck">Docker heatlcheck</a></li>
+    <li><a href="#docker-healthcheck">Docker healthcheck</a></li>
   </ul>
 </nav>
 
@@ -1075,12 +1075,27 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Observable</h1>
-        <div class="lead">Monitoring Butler Auth, making sure it&rsquo;s alive and well</div>
+	<h1>Butler Auth is observable</h1>
+        <div class="lead">Monitoring Butler Auth, making sure it&rsquo;s alive and well.</div>
 	
-	<h2 id="healthcheck-pings">Healthcheck pings</h2>
+	<h2 id="heartbeats">Heartbeats</h2>
+<p>Butler Auth has an optional heartbeat feature, which when enabled will call a specific URL with a configurable interval.</p>
+<p>A typical scenario is to use a monitoring tool such as <a href="https://healthchecks.io/">Healthchecks.io</a> to ensure that the heartbeats arrive on schedule.<br>
+That tool can then alert if the heartbeats don&rsquo;t arrive on time.<br>
+Healthchecks.io is available both as a Docker image for self-hosting and as a SaaS offering.</p>
+<p>Configuration of heartbeats is described <a href="/docs/getting-started/setup/config-file/config-file-sections/20-heartbeat/">here</a>.</p>
+<p>Here is a self-hosted Heahlthcheck.io instance used to monitor the Butler family of tools:
+<img src="healtchecksio-senseops-1.png" alt="Healthchecks.io" title="Healthchecks.io"></p>
 <h2 id="uptime-monitor-with-metrics-in-influxdb">Uptime monitor with metrics in InfluxDB</h2>
-<h2 id="docker-heatlcheck">Docker heatlcheck</h2>
+<p>Another aspect of monitoring is to keep track of the internals of the service in question.</p>
+<p>Butler Auth&rsquo;s &ldquo;uptime monitor&rdquo; is an optional feature that can be <a href="/docs/getting-started/setup/config-file/config-file-sections/40-uptime-monitor/">enabled in the config file</a>.</p>
+<p>When enabled it will send metrics on how much memory Butler Auth uses to an InfluxDB database, as well as logging these metrics to the log files.<br>
+Logging to InfluxDB and log files can be individually enabled/disabled.<br>
+Once the metrics are in InfluxDB then can be viewed using Grafana:</p>
+<p><img src="butlerauth-uptimemonitor-grafana-1.png" alt="Butler Auth memory usage visualized using Grafana" title="Butler Auth memory usage visualized using Grafana"></p>
+<h2 id="docker-healthcheck">Docker healthcheck</h2>
+<p>The main config file has <a href="/docs/getting-started/setup/config-file/config-file-sections/30-docker-healtcheck/">options for enabling Docker healthchecks</a>.<br>
+If running Butler Auth in Kubernetes this feature can useful when setting up custom avaialability logic for K8s containers.</p>
 
         <div class="section-index">
     

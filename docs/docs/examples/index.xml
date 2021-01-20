@@ -85,7 +85,7 @@ Each virtual proxy implements exactly one authentication method, or uses anonymo
     </item>
     
     <item>
-      <title>Docs: Observable</title>
+      <title>Docs: Butler Auth is observable</title>
       <link>https://butler-auth.ptarmiganlabs.com/docs/examples/obeservable/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -93,9 +93,24 @@ Each virtual proxy implements exactly one authentication method, or uses anonymo
       <description>
         
         
-        &lt;h2 id=&#34;healthcheck-pings&#34;&gt;Healthcheck pings&lt;/h2&gt;
+        &lt;h2 id=&#34;heartbeats&#34;&gt;Heartbeats&lt;/h2&gt;
+&lt;p&gt;Butler Auth has an optional heartbeat feature, which when enabled will call a specific URL with a configurable interval.&lt;/p&gt;
+&lt;p&gt;A typical scenario is to use a monitoring tool such as &lt;a href=&#34;https://healthchecks.io/&#34;&gt;Healthchecks.io&lt;/a&gt; to ensure that the heartbeats arrive on schedule.&lt;br&gt;
+That tool can then alert if the heartbeats don&amp;rsquo;t arrive on time.&lt;br&gt;
+Healthchecks.io is available both as a Docker image for self-hosting and as a SaaS offering.&lt;/p&gt;
+&lt;p&gt;Configuration of heartbeats is described &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/20-heartbeat/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here is a self-hosted Heahlthcheck.io instance used to monitor the Butler family of tools:
+&lt;img src=&#34;healtchecksio-senseops-1.png&#34; alt=&#34;Healthchecks.io&#34; title=&#34;Healthchecks.io&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;uptime-monitor-with-metrics-in-influxdb&#34;&gt;Uptime monitor with metrics in InfluxDB&lt;/h2&gt;
-&lt;h2 id=&#34;docker-heatlcheck&#34;&gt;Docker heatlcheck&lt;/h2&gt;
+&lt;p&gt;Another aspect of monitoring is to keep track of the internals of the service in question.&lt;/p&gt;
+&lt;p&gt;Butler Auth&amp;rsquo;s &amp;ldquo;uptime monitor&amp;rdquo; is an optional feature that can be &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/40-uptime-monitor/&#34;&gt;enabled in the config file&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When enabled it will send metrics on how much memory Butler Auth uses to an InfluxDB database, as well as logging these metrics to the log files.&lt;br&gt;
+Logging to InfluxDB and log files can be individually enabled/disabled.&lt;br&gt;
+Once the metrics are in InfluxDB then can be viewed using Grafana:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butlerauth-uptimemonitor-grafana-1.png&#34; alt=&#34;Butler Auth memory usage visualized using Grafana&#34; title=&#34;Butler Auth memory usage visualized using Grafana&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;docker-healthcheck&#34;&gt;Docker healthcheck&lt;/h2&gt;
+&lt;p&gt;The main config file has &lt;a href=&#34;https://butler-auth.ptarmiganlabs.com/docs/getting-started/setup/config-file/config-file-sections/30-docker-healtcheck/&#34;&gt;options for enabling Docker healthchecks&lt;/a&gt;.&lt;br&gt;
+If running Butler Auth in Kubernetes this feature can useful when setting up custom avaialability logic for K8s containers.&lt;/p&gt;
 
       </description>
     </item>
