@@ -75,6 +75,6 @@ This tool makes it easy to tap into the Qlik Sense notification API. From there 
 
 Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
 The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.  
-With such icons available, Sense app developers can then use professional quality sheet and app icons in their Sense apps.ß
+With such icons available, Sense app developers can then use professional quality sheet and app icons in their Sense apps.
 
 [github.com/ptarmiganlabs/butler-icon-upload](https://github.com/ptarmiganlabs/butler-icon-upload)
